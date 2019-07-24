@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">pps_tudai</string>
+    <string name="button_login_text">LOGIN</string>
+    <string name="button_signup_text">SIGN UP</string>
+</resources>
