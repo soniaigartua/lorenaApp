@@ -4,14 +4,14 @@ import com.example.pps_tudai.mvp.view.MainView;
 
 public class MainPresenter {
 
-   private final MainView mainView;
+    private final MainView mainView;
 
     public MainPresenter(MainView mainView) {
         this.mainView = mainView;
     }
 
     public void onLoginPressed() {
-            mainView.showWelcomeMessage();
+        mainView.showWelcomeMessage();
     }
 
     public void onSignUpPressed() {
