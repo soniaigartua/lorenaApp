@@ -18,17 +18,4 @@ public class MainPresenter {
         mainView.showRegistrationScreen();
     }
 
-
-//    @Override
-//    public void onLoginPressed() {
-//        String username = loginView.getUsername();
-//        String password = loginView.getPassword();
-//        boolean isAuthenticated = loginModel.authenticateUser(username, password);
-//        if (isAuthenticated) {
-//            loginView.showWelcomeScreen();
-//        } else {
-//            loginView.showOnAuthenticationErrorMessage();
-//        }
-//    }
-
 }
