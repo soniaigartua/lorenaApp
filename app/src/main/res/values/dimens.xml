@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_top_welcome_screem">330dp</dimen>
+    <dimen name="padding_side">60dp</dimen>
+    <dimen name="button_height">90dp</dimen>
+    <dimen name="button_sign_up_separate">-130dp</dimen>
+    <dimen name="font_size_button">24sp</dimen>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">lorenaApp</string>
+    <string name="button_login_text">LOGIN</string>
+    <string name="button_signup_text">SIGN UP</string>
+    <string name="welcome_message">Welcome to the app NUEVO</string>
+    <string name="sign_up_message">Complete the next form NUEVO</string>
+</resources>
