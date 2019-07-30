@@ -15,19 +15,14 @@ public class User {
     }
 
     public void setUsername(String email) {
-
         this.email = email;
     }
 
     public String getPassword() {
-
         return password;
     }
 
     public void setPassword(String password) {
-
         this.password = password;
     }
-
-
 }

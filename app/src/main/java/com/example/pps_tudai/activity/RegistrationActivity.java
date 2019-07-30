@@ -31,9 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void init() {
         ButterKnife.bind(this);
         RegistrationView view = new RegistrationView(this);
-
         RegistrationModel model = new RegistrationModel();
-
         presenter = new RegistrationPresenter(model,view);
     }
 

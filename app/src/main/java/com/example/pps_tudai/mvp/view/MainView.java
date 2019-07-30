@@ -30,5 +30,4 @@ public class MainView {
             activityWeak.get().startActivity(register);
         }
     }
-
 }

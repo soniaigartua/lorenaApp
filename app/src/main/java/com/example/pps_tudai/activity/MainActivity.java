@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         ButterKnife.bind(this);
         MainView view = new MainView(this);
-
         presenter = new MainPresenter(view);
     }
 

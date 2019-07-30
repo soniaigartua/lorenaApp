@@ -45,13 +45,13 @@ public class RegistrationView {
 
     public void showRegistrationScreenOK() {
         if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), "Registration complete", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.register_complete_message), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void showDataEmptyScreen() {
         if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), "Can not have empty fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.authentication_error_message), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -61,5 +61,4 @@ public class RegistrationView {
             activityWeak.get().startActivity(cancel);
         }
     }
-
 }
