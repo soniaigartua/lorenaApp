@@ -23,12 +23,12 @@ public class MainPresenterTest {
     @Test
     public void onLoginPressedTest() {
         mainPresenter.onLoginPressed();
-        verify(mainView).showWelcomeMessage();
+        verify(mainView).showLoginScreen();
     }
 
     @Test
     public void onSignUpPressed() {
-        mainPresenter.onSignUpPressed();
+        mainPresenter.onRegistrationPressed();
         verify(mainView).showRegistrationScreen();
     }
 }

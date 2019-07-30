@@ -11,10 +11,10 @@ public class MainPresenter {
     }
 
     public void onLoginPressed() {
-        mainView.showWelcomeMessage();
+        mainView.showLoginScreen();
     }
 
-    public void onSignUpPressed() {
+    public void onRegistrationPressed() {
         mainView.showRegistrationScreen();
     }
 

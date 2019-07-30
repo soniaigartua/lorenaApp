@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">lorenaApp</string>
     <string name="button_login_text">LOGIN</string>
-    <string name="button_signup_text">SIGN UP</string>
+    <string name="button_signup_text">REGISTRATION</string>
+    <string name="button_cancel_text">CANCEL</string>
+    <string name="placeholder_login_name">name</string>
+    <string name="placeholder_login_surname">surname</string>
+    <string name="placeholder_login_email">e-mail</string>
+    <string name="placeholder_login_password">password</string>
     <string name="welcome_message">Welcome to the app NUEVO</string>
     <string name="sign_up_message">Complete the next form NUEVO</string>
 </resources>
