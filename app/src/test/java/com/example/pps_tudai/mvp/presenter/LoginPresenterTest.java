@@ -19,6 +19,7 @@ public class LoginPresenterTest {
     private static final String  WRONG_EMAIL_USER = "lorena.example.com";
     private static final String  INVALID_EMAIL_USER = "lorena@gmail.com";
     private static final String PASSWORD_USER = "123456";
+    private static final String EMPTY = "";
 
     @Before
     public void setUp() {
@@ -48,8 +49,8 @@ public class LoginPresenterTest {
 
     @Test
     public void loginEmptyData() {
-        when(loginView.getUserEmail()).thenReturn("");
-        when(loginView.getPassword()).thenReturn("");
+        when(loginView.getUserEmail()).thenReturn(EMPTY);
+        when(loginView.getPassword()).thenReturn(EMPTY);
         loginPresenter.onLoginPressed();
 
         verify(loginView).showDataEmptyScreen();

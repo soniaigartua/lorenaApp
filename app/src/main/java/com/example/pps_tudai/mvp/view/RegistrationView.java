@@ -38,7 +38,6 @@ public class RegistrationView {
         return email.getText().toString();
     }
 
-
     public String getPassword() {
         return password.getText().toString();
     }

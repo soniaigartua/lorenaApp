@@ -2,7 +2,7 @@ package com.example.pps_tudai.mvp.presenter;
 
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
-import static com.example.pps_tudai.utils.StringUtils.MODELO_EMAIL_VALIDO;
+import static com.example.pps_tudai.utils.StringUtils.VALID_EMAIL_MODEL;
 
 public class LoginPresenter {
 
@@ -35,9 +35,8 @@ public class LoginPresenter {
     }
 
     private boolean isvalid(String email) {
-        return email.matches(MODELO_EMAIL_VALIDO);
+        return email.matches(VALID_EMAIL_MODEL);
     }
-
 
     public void onCancelPressed() {
         loginView.cancelLogin();
