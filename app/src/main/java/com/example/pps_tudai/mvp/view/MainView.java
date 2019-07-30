@@ -1,10 +1,9 @@
 package com.example.pps_tudai.mvp.view;
 
 import android.app.Activity;
-import android.widget.Toast;
-
-import com.example.pps_tudai.R;
-
+import android.content.Intent;
+import com.example.pps_tudai.activity.LoginActivity;
+import com.example.pps_tudai.activity.RegistrationActivity;
 import java.lang.ref.WeakReference;
 import butterknife.ButterKnife;
 
@@ -18,16 +17,17 @@ public class MainView {
         this.activityWeak = new WeakReference<Activity>(activity);
     }
 
-    public void showWelcomeMessage() {
+    public void showLoginScreen() {
         if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), R.string.welcome_message , Toast.LENGTH_LONG).show();
+            Intent login = new Intent(activityWeak.get(), LoginActivity.class);
+            activityWeak.get().startActivity(login);
         }
     }
 
     public void showRegistrationScreen() {
         if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), R.string.sign_up_message , Toast.LENGTH_LONG).show();
+            Intent register = new Intent(activityWeak.get(), RegistrationActivity.class);
+            activityWeak.get().startActivity(register);
         }
     }
-
 }

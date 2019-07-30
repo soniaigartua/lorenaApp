@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.MainActivity"
-    android:paddingTop="@dimen/padding_top_welcome_screem"
-    android:paddingRight="@dimen/padding_side"
-    android:paddingLeft="@dimen/padding_side">
+    android:gravity="center">
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:text="@string/button_login_text"
         android:textSize="@dimen/font_size_button"
@@ -19,12 +18,11 @@
 
     <Button
         android:id="@+id/btn_signup"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_alignBottom="@id/btn_login"
-        android:layout_marginBottom="@dimen/button_sign_up_separate"
+        android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:text="@string/button_signup_text"
         android:background="@color/colorPrimary"
         android:textSize="@dimen/font_size_button" />
 
-</RelativeLayout>
+</LinearLayout>

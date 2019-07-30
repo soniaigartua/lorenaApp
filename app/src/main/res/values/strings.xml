@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">lorenaApp</string>
     <string name="button_login_text">LOGIN</string>
-    <string name="button_signup_text">SIGN UP</string>
-    <string name="welcome_message">Welcome to the app NUEVO</string>
-    <string name="sign_up_message">Complete the next form NUEVO</string>
+    <string name="button_signup_text">REGISTRATION</string>
+    <string name="button_cancel_text">CANCEL</string>
+    <string name="placeholder_login_name">name</string>
+    <string name="placeholder_login_surname">surname</string>
+    <string name="placeholder_login_email">e-mail</string>
+    <string name="placeholder_login_password">password</string>
+    <string name="authentication_error_message">Password is incorrect</string>
+    <string name="incorrect_email_message">Email address is incorrect</string>
+    <string name="welcome_app_message">Welcome to lorenaApp</string>
+    <string name="empty_fields_message">Email Address or Password can not be empty</string>
+    <string name="register_complete_message">Registration complete</string>
+    <string name="register_error_message">Can not have empty fields</string>
+    <string name="string_modelo_email_valido">^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$</string>
+
+
 </resources>

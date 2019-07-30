@@ -3,11 +3,9 @@ package com.example.pps_tudai.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.mvp.presenter.MainPresenter;
 import com.example.pps_tudai.mvp.view.MainView;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -24,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         ButterKnife.bind(this);
         MainView view = new MainView(this);
-
         presenter = new MainPresenter(view);
     }
 
@@ -34,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_signup)
-    public void btnSignUpClicked() {
-        presenter.onSignUpPressed();
+    public void btnRegistrationClicked() {
+        presenter.onRegistrationPressed();
     }
+
 }
