@@ -43,6 +43,14 @@
         android:textSize="@dimen/font_size_button"
         android:inputType="textEmailAddress" />
 
+    <EditText
+        android:id="@+id/et_password2"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:hint="@string/placeholder_login_repeat_password"
+        android:textSize="@dimen/font_size_button"
+        android:inputType="textEmailAddress" />
+
     <Button
         android:id="@+id/btn_enter_register"
         android:layout_width="@dimen/button_width"

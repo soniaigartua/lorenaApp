@@ -2,12 +2,13 @@ package com.example.pps_tudai.mvp.presenter;
 
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
-import static com.example.pps_tudai.utils.StringUtils.VALID_EMAIL_MODEL;
+import com.example.pps_tudai.utils.Validator;
 
 public class LoginPresenter {
 
     private final LoginModel loginModel;
     private final LoginView loginView;
+    private final Validator validator = new Validator();
 
     public LoginPresenter(LoginModel loginModel, LoginView loginView) {
         this.loginModel = loginModel;
@@ -21,7 +22,7 @@ public class LoginPresenter {
         if (email.isEmpty() || password.isEmpty()) {
             loginView.showDataEmptyScreen();
         }
-        if(isvalid(email)) {
+        if(validator.isValid(email)) {
             boolean isAuthenticated = loginModel.authenticateUser(email, password);
             if (isAuthenticated) {
                 loginView.showWelcomeScreen();
@@ -34,9 +35,9 @@ public class LoginPresenter {
         }
     }
 
-    private boolean isvalid(String email) {
-        return email.matches(VALID_EMAIL_MODEL);
-    }
+//    private boolean isValid(String email) {
+//        return email.matches(VALID_EMAIL_MODEL);
+//    }
 
     public void onCancelPressed() {
         loginView.cancelLogin();

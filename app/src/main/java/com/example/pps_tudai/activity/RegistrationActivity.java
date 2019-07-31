@@ -1,19 +1,11 @@
 package com.example.pps_tudai.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-
 import com.example.pps_tudai.R;
-import com.example.pps_tudai.data.entities.User;
-import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
-import com.example.pps_tudai.mvp.presenter.LoginPresenter;
 import com.example.pps_tudai.mvp.presenter.RegistrationPresenter;
-import com.example.pps_tudai.mvp.view.LoginView;
 import com.example.pps_tudai.mvp.view.RegistrationView;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
