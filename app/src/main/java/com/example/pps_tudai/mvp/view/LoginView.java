@@ -2,7 +2,6 @@ package com.example.pps_tudai.mvp.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.pps_tudai.R;
@@ -12,11 +11,12 @@ import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class LoginView {
 
-    @BindView(R.id.et_email) EditText email;
-    @BindView(R.id.et_password) EditText password;
+    @BindView(R.id.et_email)
+    EditText email;
+    @BindView(R.id.et_password)
+    EditText password;
 
     private MainPresenter presenter;
 
@@ -60,7 +60,7 @@ public class LoginView {
         }
     }
 
-    public void cancelLogin () {
+    public void cancelLogin() {
         if (activityWeak.get() != null) {
             Intent cancel = new Intent(activityWeak.get(), MainActivity.class);
             activityWeak.get().startActivity(cancel);

@@ -6,7 +6,6 @@ import com.example.pps_tudai.utils.Validator;
 
 public class RegistrationPresenter {
 
-
     private final RegistrationModel registerModel;
     private final RegistrationView registerView;
     private final Validator validator = new Validator();
@@ -30,8 +29,7 @@ public class RegistrationPresenter {
         }
         if (!password.equals(password_repeat)) {
             registerView.showErrorPasswordRegistrationScreen();
-        }
-        else {
+        } else {
             registerModel.registerUser(name, surname, email, password);
             registerView.showRegistrationScreenOK();
         }

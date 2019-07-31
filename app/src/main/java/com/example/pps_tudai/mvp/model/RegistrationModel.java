@@ -5,6 +5,6 @@ import com.example.pps_tudai.data.entities.User;
 public class RegistrationModel {
 
     public void registerUser(String name, String surname, String email, String password) {
-        User user = new User (name, surname, email, password);
+        User user = new User(name, surname, email, password);
     }
 }

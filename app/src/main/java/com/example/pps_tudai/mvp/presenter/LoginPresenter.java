@@ -35,10 +35,6 @@ public class LoginPresenter {
         }
     }
 
-//    private boolean isValid(String email) {
-//        return email.matches(VALID_EMAIL_MODEL);
-//    }
-
     public void onCancelPressed() {
         loginView.cancelLogin();
     }
