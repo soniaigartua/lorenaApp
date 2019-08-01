@@ -2,9 +2,9 @@ package com.example.pps_tudai.mvp.presenter;
 
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
+import com.example.pps_tudai.utils.Validator;
 
 public class RegistrationPresenter {
-
 
     private final RegistrationModel registerModel;
     private final RegistrationView registerView;
@@ -19,11 +19,17 @@ public class RegistrationPresenter {
         String surname = registerView.getUserSurname();
         String email = registerView.getUserEmail();
         String password = registerView.getPassword();
-
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        String password_repeat = registerView.getPasswordRepeat();
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || password_repeat.isEmpty()) {
             registerView.showDataEmptyScreen();
         }
-        else {
+        if (!Validator.isValid(email)) {
+            registerView.showErrorEmailRegistrationScreen();
+        }
+        if (!password.equals(password_repeat)) {
+            registerView.showErrorPasswordRegistrationScreen();
+        } else {
+            registerModel.registerUser(name, surname, email, password);
             registerView.showRegistrationScreenOK();
         }
     }
@@ -31,5 +37,4 @@ public class RegistrationPresenter {
     public void onCancelPressed() {
         registerView.cancelRegister();
     }
-
 }

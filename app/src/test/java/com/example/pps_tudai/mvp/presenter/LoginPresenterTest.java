@@ -7,6 +7,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static com.example.pps_tudai.utils.StringUtils.EMAIL_USER;
+import static com.example.pps_tudai.utils.StringUtils.EMPTY;
+import static com.example.pps_tudai.utils.StringUtils.INVALID_EMAIL_USER;
+import static com.example.pps_tudai.utils.StringUtils.PASSWORD_USER;
+import static com.example.pps_tudai.utils.StringUtils.WRONG_EMAIL_USER;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -15,11 +20,6 @@ public class LoginPresenterTest {
     @Mock private LoginPresenter loginPresenter;
     @Mock private LoginView loginView;
     @Mock private LoginModel loginModel;
-    private static final String EMAIL_USER = "lorena@example.com";
-    private static final String  WRONG_EMAIL_USER = "lorena.example.com";
-    private static final String  INVALID_EMAIL_USER = "lorena@gmail.com";
-    private static final String PASSWORD_USER = "123456";
-    private static final String EMPTY = "";
 
     @Before
     public void setUp() {

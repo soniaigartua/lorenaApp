@@ -17,5 +17,4 @@ public class MainPresenter {
     public void onRegistrationPressed() {
         mainView.showRegistrationScreen();
     }
-
 }
