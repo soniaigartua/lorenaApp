@@ -10,4 +10,5 @@ public class StringUtils {
     public static final String EMPTY = "";
     public static final String NAME_USER = "lorena";
     public static final String SURNAME_USER = "igartua";
+
 }

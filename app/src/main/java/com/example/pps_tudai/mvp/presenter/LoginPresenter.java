@@ -8,7 +8,6 @@ public class LoginPresenter {
 
     private final LoginModel loginModel;
     private final LoginView loginView;
-    private final Validator validator = new Validator();
 
     public LoginPresenter(LoginModel loginModel, LoginView loginView) {
         this.loginModel = loginModel;
@@ -22,7 +21,7 @@ public class LoginPresenter {
         if (email.isEmpty() || password.isEmpty()) {
             loginView.showDataEmptyScreen();
         }
-        if(validator.isValid(email)) {
+        if(Validator.isValid(email)) {
             boolean isAuthenticated = loginModel.authenticateUser(email, password);
             if (isAuthenticated) {
                 loginView.showWelcomeScreen();

@@ -8,7 +8,6 @@ public class RegistrationPresenter {
 
     private final RegistrationModel registerModel;
     private final RegistrationView registerView;
-    private final Validator validator = new Validator();
 
     public RegistrationPresenter(RegistrationModel registerModel, RegistrationView registerView) {
         this.registerModel = registerModel;
@@ -24,7 +23,7 @@ public class RegistrationPresenter {
         if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || password_repeat.isEmpty()) {
             registerView.showDataEmptyScreen();
         }
-        if (!validator.isValid(email)) {
+        if (!Validator.isValid(email)) {
             registerView.showErrorEmailRegistrationScreen();
         }
         if (!password.equals(password_repeat)) {
