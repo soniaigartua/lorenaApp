@@ -1,6 +1,5 @@
 package com.example.pps_tudai.mvp.presenter;
 
-import com.example.pps_tudai.data.entities.AppRepository;
 import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
@@ -20,26 +19,16 @@ import static org.mockito.Mockito.when;
 
 public class RegistrationPresenterTest {
 
-    @Mock
     private RegistrationPresenter registerPresenter;
     @Mock
     private RegistrationView registerView;
     @Mock
     private RegistrationModel registerModel;
-    @Mock
-    private AppRepository appRepository;
-    @Mock
-    private User user;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        registerModel = new RegistrationModel(appRepository);
         registerPresenter = new RegistrationPresenter(registerModel, registerView);
-        user.setName(NAME_USER);
-        user.setSurname(SURNAME_USER);
-        user.setEmail(EMAIL_USER);
-        user.setPassword(PASSWORD_USER);
     }
 
     @Test

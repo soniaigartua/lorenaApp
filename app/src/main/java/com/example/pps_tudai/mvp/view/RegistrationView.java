@@ -22,8 +22,6 @@ public class RegistrationView {
     EditText password;
     @BindView(R.id.et_password2)
     EditText password_repeat;
-//    @BindView(R.id.tv_user)
-//    EditText user_data;
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;

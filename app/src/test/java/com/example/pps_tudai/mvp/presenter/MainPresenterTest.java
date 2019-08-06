@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 
 public class MainPresenterTest {
 
-    @Mock private MainPresenter mainPresenter;
+    private MainPresenter mainPresenter;
     @Mock private MainView mainView;
 
     @Before

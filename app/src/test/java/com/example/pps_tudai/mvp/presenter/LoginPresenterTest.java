@@ -24,19 +24,15 @@ import static org.mockito.Mockito.when;
 
 public class LoginPresenterTest {
 
-    @Mock
     private LoginPresenter loginPresenter;
     @Mock
     private LoginView loginView;
     @Mock
     private LoginModel loginModel;
-    @Mock
-    private AppRepository appRepository;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        loginModel = new LoginModel(appRepository);
         loginPresenter = new LoginPresenter(loginModel, loginView);
     }
 

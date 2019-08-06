@@ -17,7 +17,4 @@
     <string name="register_error_email_message">Introduce a valid email</string>
     <string name="register_error_password_message">The repeated password does not match</string>
     <string name="no_registration_message">The email address does not exist. Do your registration</string>
-
-
-
 </resources>
