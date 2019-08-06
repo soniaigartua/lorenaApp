@@ -1,13 +1,13 @@
 package com.example.pps_tudai.mvp.presenter;
 
+import com.example.pps_tudai.data.entities.AppRepository;
+import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_USER;
 import static com.example.pps_tudai.utils.StringUtils.EMPTY;
 import static com.example.pps_tudai.utils.StringUtils.NAME_USER;
@@ -26,16 +26,24 @@ public class RegistrationPresenterTest {
     private RegistrationView registerView;
     @Mock
     private RegistrationModel registerModel;
+    @Mock
+    private AppRepository appRepository;
+    @Mock
+    private User user;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        registerModel = new RegistrationModel();
+        registerModel = new RegistrationModel(appRepository);
         registerPresenter = new RegistrationPresenter(registerModel, registerView);
+        user.setName(NAME_USER);
+        user.setSurname(SURNAME_USER);
+        user.setEmail(EMAIL_USER);
+        user.setPassword(PASSWORD_USER);
     }
 
     @Test
-    public void registrationOK() {
+    public void registrationOKView() {
         when(registerView.getUserName()).thenReturn(NAME_USER);
         when(registerView.getUserSurname()).thenReturn(SURNAME_USER);
         when(registerView.getUserEmail()).thenReturn(EMAIL_USER);

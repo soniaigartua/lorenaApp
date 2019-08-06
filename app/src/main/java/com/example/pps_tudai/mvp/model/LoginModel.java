@@ -1,20 +1,41 @@
 package com.example.pps_tudai.mvp.model;
 
-import com.example.pps_tudai.data.entities.User;
+import com.example.pps_tudai.data.entities.AppRepository;
+import com.example.pps_tudai.data.entities.entity.User;
 
 public class LoginModel {
 
-    private final User user;
+    private final AppRepository usersRepository;
 
-    public LoginModel() {
-        User user = new User("lorena@example.com", "123456");
-        this.user = user;
+    public LoginModel(AppRepository usersRepository) {
+        this.usersRepository = usersRepository;
     }
 
-    public boolean authenticateUser(String email, String password) {
-        if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-            return true;
+    public User getUserByEmail(String email) {
+        return usersRepository.getUserByEmail(email);
+    }
+
+    public boolean validateUserByEmailAndPassword(String email, String password) {
+        User aux = usersRepository.getUserByEmail(email);
+        if (aux != null) {
+            if (aux.getPassword().equals(password)) {
+                return true;
+            } else {
+                return false;
+            }
         }
         return false;
+    }
+
+    public boolean checkEmailRegistered(String email) {
+        User aux = usersRepository.getUserByEmail(email);
+        if (aux != null) {
+                return true;
+        }
+        return false;
+    }
+
+    public void clearDatabase() {
+        usersRepository.clearDatabase();
     }
 }

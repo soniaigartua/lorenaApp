@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.mvp.presenter.MainPresenter;
+
 import java.lang.ref.WeakReference;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -17,8 +20,6 @@ public class LoginView {
     EditText email;
     @BindView(R.id.et_password)
     EditText password;
-
-    private MainPresenter presenter;
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
@@ -45,6 +46,13 @@ public class LoginView {
     public void showOnEmailErrorMessage() {
         if (activityWeak.get() != null) {
             Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.incorrect_email_message), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void showNoRegistrationMessage() {
+        if (activityWeak.get() != null) {
+            Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.no_registration_message), Toast.LENGTH_SHORT).show();
+            cancelLogin();
         }
     }
 

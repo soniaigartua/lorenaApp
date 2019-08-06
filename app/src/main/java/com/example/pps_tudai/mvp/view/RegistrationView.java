@@ -4,12 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.MainActivity;
-
 import java.lang.ref.WeakReference;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -25,6 +22,8 @@ public class RegistrationView {
     EditText password;
     @BindView(R.id.et_password2)
     EditText password_repeat;
+//    @BindView(R.id.tv_user)
+//    EditText user_data;
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
@@ -57,6 +56,8 @@ public class RegistrationView {
     public void showRegistrationScreenOK() {
         if (activityWeak.get() != null) {
             Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.register_complete_message), Toast.LENGTH_SHORT).show();
+            Intent cancel = new Intent(activityWeak.get(), MainActivity.class);
+            activityWeak.get().startActivity(cancel);
         }
     }
 

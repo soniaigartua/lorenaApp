@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import com.example.pps_tudai.R;
+import com.example.pps_tudai.data.entities.AppRepository;
+import com.example.pps_tudai.data.entities.AppRoomDataBase;
 import com.example.pps_tudai.mvp.presenter.MainPresenter;
 import com.example.pps_tudai.mvp.view.MainView;
 import butterknife.ButterKnife;
