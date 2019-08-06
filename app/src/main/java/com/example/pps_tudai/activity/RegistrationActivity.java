@@ -3,6 +3,8 @@ package com.example.pps_tudai.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.pps_tudai.R;
+import com.example.pps_tudai.data.entities.AppRepository;
+import com.example.pps_tudai.data.entities.AppRoomDataBase;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.presenter.RegistrationPresenter;
 import com.example.pps_tudai.mvp.view.RegistrationView;
@@ -11,7 +13,7 @@ import butterknife.OnClick;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private RegistrationPresenter presenter;
+    private RegistrationPresenter registerPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +24,18 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void init() {
         ButterKnife.bind(this);
-        RegistrationView view = new RegistrationView(this);
-        RegistrationModel model = new RegistrationModel();
-        presenter = new RegistrationPresenter(model,view);
+        RegistrationView registerView = new RegistrationView(this);
+        RegistrationModel registerModel = new RegistrationModel(new AppRepository(AppRoomDataBase.getDatabase(this).userDao()));
+        registerPresenter = new RegistrationPresenter(registerModel,registerView);
     }
 
     @OnClick(R.id.btn_enter_register)
     public void btnRegisterClicked() {
-        presenter.onRegisterPressed();
+        registerPresenter.onRegisterPressed();
     }
 
     @OnClick(R.id.btn_cancel_register)
     public void btnCancelRegisterClicked() {
-        presenter.onCancelPressed();
+        registerPresenter.onCancelPressed();
     }
 }

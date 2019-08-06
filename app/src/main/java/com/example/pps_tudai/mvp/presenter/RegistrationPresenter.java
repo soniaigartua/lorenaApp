@@ -1,5 +1,6 @@
 package com.example.pps_tudai.mvp.presenter;
 
+import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
 import com.example.pps_tudai.utils.Validator;
@@ -20,6 +21,7 @@ public class RegistrationPresenter {
         String email = registerView.getUserEmail();
         String password = registerView.getPassword();
         String password_repeat = registerView.getPasswordRepeat();
+
         if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || password_repeat.isEmpty()) {
             registerView.showDataEmptyScreen();
         }
@@ -29,7 +31,9 @@ public class RegistrationPresenter {
         if (!password.equals(password_repeat)) {
             registerView.showErrorPasswordRegistrationScreen();
         } else {
-            registerModel.registerUser(name, surname, email, password);
+            User user = new User(name, surname, email, password);
+            registerModel.setUser(user);
+            registerModel.registerUser(user);
             registerView.showRegistrationScreenOK();
         }
     }

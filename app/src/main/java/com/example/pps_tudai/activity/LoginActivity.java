@@ -1,11 +1,10 @@
 package com.example.pps_tudai.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import com.example.pps_tudai.R;
-import com.example.pps_tudai.data.entities.User;
+import com.example.pps_tudai.data.entities.AppRepository;
+import com.example.pps_tudai.data.entities.AppRoomDataBase;
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.presenter.LoginPresenter;
 import com.example.pps_tudai.mvp.view.LoginView;
@@ -26,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         ButterKnife.bind(this);
         LoginView view = new LoginView(this);
+        AppRepository appRepository = new AppRepository(AppRoomDataBase.getDatabase(this).userDao());
+        LoginModel model = new LoginModel(appRepository);
 
-        LoginModel model = new LoginModel();
-
-        presenter = new LoginPresenter(model,view);
+        presenter = new LoginPresenter(model, view);
     }
 
     @OnClick(R.id.btn_enter_login)
@@ -41,5 +40,4 @@ public class LoginActivity extends AppCompatActivity {
     public void btnCancelLoginClicked() {
         presenter.onCancelPressed();
     }
-
 }

@@ -21,15 +21,20 @@ public class LoginPresenter {
         if (email.isEmpty() || password.isEmpty()) {
             loginView.showDataEmptyScreen();
         }
-        if(Validator.isValid(email)) {
-            boolean isAuthenticated = loginModel.authenticateUser(email, password);
-            if (isAuthenticated) {
-                loginView.showWelcomeScreen();
-            } else {
-                loginView.showOnAuthenticationErrorMessage();
+        if (Validator.isValid(email)) {
+            if (loginModel.checkEmailRegistered(email)) {
+                if (loginModel.validateUserByEmailAndPassword(email, password)) {
+                    loginView.showWelcomeScreen();
+                } else {
+                    loginView.showOnAuthenticationErrorMessage();
+                }
+
             }
-        }
-        else{
+            else {
+                loginView.showNoRegistrationMessage();
+            }
+
+        } else {
             loginView.showOnEmailErrorMessage();
         }
     }
