@@ -2,10 +2,12 @@ package com.example.pps_tudai.mvp.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.MainActivity;
+
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +24,8 @@ public class RegistrationView {
     EditText password;
     @BindView(R.id.et_password2)
     EditText password_repeat;
+    @BindView(R.id.checkbox_mail)
+    CheckBox checkbox;
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
@@ -81,6 +85,15 @@ public class RegistrationView {
         if (activityWeak.get() != null) {
             Intent cancel = new Intent(activityWeak.get(), MainActivity.class);
             activityWeak.get().startActivity(cancel);
+        }
+    }
+
+    public boolean emailSendRequest() {
+        if(checkbox.isChecked()) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

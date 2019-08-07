@@ -2,6 +2,7 @@
     <string name="app_name">lorenaApp</string>
     <string name="button_login_text">LOGIN</string>
     <string name="button_signup_text">REGISTRATION</string>
+    <string name="button_register_text">CREATE ACCOUNT</string>
     <string name="button_cancel_text">CANCEL</string>
     <string name="placeholder_login_name">name</string>
     <string name="placeholder_login_surname">surname</string>
@@ -17,4 +18,7 @@
     <string name="register_error_email_message">Introduce a valid email</string>
     <string name="register_error_password_message">The repeated password does not match</string>
     <string name="no_registration_message">The email address does not exist. Do your registration</string>
+    <string name="email_request_message">Send me this information</string>
+    <string name="email_sent_message">Your data was sent by email</string>
+    <string name="email_error_message">There was a problem sending the email</string>
 </resources>

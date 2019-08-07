@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.LoginActivity"
+    android:background="@drawable/desierto">
 
     <EditText
         android:id="@+id/et_email"
@@ -31,6 +32,7 @@
         android:layout_height="@dimen/button_height"
         android:text="@string/button_login_text"
         android:textSize="@dimen/font_size_button"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary" />
 
     <Button
@@ -40,6 +42,7 @@
         android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:text="@string/button_cancel_text"
         android:textSize="@dimen/font_size_button"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary" />
 
 </LinearLayout>
