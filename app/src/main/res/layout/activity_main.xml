@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:paddingTop="@dimen/padding_top"
+    android:background="@drawable/desierto">
 
     <Button
         android:id="@+id/btn_login"
@@ -14,6 +16,7 @@
         android:layout_height="@dimen/button_height"
         android:text="@string/button_login_text"
         android:textSize="@dimen/font_size_button"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary"/>
 
     <Button
@@ -22,6 +25,7 @@
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:text="@string/button_signup_text"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary"
         android:textSize="@dimen/font_size_button" />
 

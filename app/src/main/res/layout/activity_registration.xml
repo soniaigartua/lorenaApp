@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="activity.RegistrationActivity">
+    tools:context="activity.RegistrationActivity"
+    android:background="@drawable/desierto">
 
     <EditText
         android:id="@+id/et_name"
@@ -55,9 +56,16 @@
         android:id="@+id/btn_enter_register"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:text="@string/button_signup_text"
+        android:text="@string/button_register_text"
         android:textSize="@dimen/font_size_button"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary" />
+
+    <CheckBox android:id="@+id/checkbox_mail"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/email_request_message"
+        android:textSize="@dimen/font_size_button" />
 
     <Button
         android:id="@+id/btn_cancel_register"
@@ -66,6 +74,7 @@
         android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:text="@string/button_cancel_text"
         android:textSize="@dimen/font_size_button"
+        android:alpha="@dimen/alpha_button"
         android:background="@color/colorPrimary" />
 
 </LinearLayout>

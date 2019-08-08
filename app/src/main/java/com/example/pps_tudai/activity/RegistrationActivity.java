@@ -25,7 +25,9 @@ public class RegistrationActivity extends AppCompatActivity {
     private void init() {
         ButterKnife.bind(this);
         RegistrationView registerView = new RegistrationView(this);
-        RegistrationModel registerModel = new RegistrationModel(new AppRepository(AppRoomDataBase.getDatabase(this).userDao()));
+        AppRepository appRepository = new AppRepository(AppRoomDataBase.getDatabase(this).userDao());
+        appRepository.clearDatabase();
+        RegistrationModel registerModel = new RegistrationModel(appRepository);
         registerPresenter = new RegistrationPresenter(registerModel,registerView);
     }
 
