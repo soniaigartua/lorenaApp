@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6F6A69</color>
-    <color name="colorPrimaryDark">#CEA87A</color>
+    <!--<color name="colorPrimary">#6F6A69</color>-->
+    <color name="colorPrimary">#878988</color>
+    <!--<color name="colorPrimaryDark">#CEA87A</color>-->
+    <color name="colorPrimaryDark">#B57C3B</color>
     <color name="colorAccent">#332617</color>
+    <color name="Negro">#000</color>
+    <color name="background_enter">#F3F3F6</color>
+    <color name="sign_enter">#CE444A</color>
 </resources>

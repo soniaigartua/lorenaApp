@@ -3,7 +3,8 @@ package com.example.pps_tudai.data.entities.asyncTask;
 import android.os.AsyncTask;
 import com.example.pps_tudai.data.entities.dao.UserDAO;
 import com.example.pps_tudai.data.entities.entity.User;
-import static com.example.pps_tudai.utils.StringUtils.ZERO;
+
+import static com.example.pps_tudai.utils.IntUtils.ZERO;
 
 public class InsertAsyncTask extends AsyncTask<User, Void, Void> {
 
