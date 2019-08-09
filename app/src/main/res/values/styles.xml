@@ -19,7 +19,7 @@
     <style name="ButtonStyle" >
         <item name="android:textSize">@dimen/font_size_button</item>
         <item name="android:alpha">@dimen/alpha_button</item>
-        <item name="android:textColor">@color/Negro</item>
+        <item name="android:textColor">@color/black_color</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">@dimen/button_width</item>
         <item name="android:layout_height">@dimen/button_height</item>
@@ -28,7 +28,7 @@
     <style name="EditTextStyle" >
         <item name="android:layout_width">@dimen/button_width</item>
         <item name="android:layout_height">@dimen/button_height</item>
-        <item name="android:textColorHint">@color/Negro</item>
+        <item name="android:textColorHint">@color/black_color</item>
         <item name="android:textSize">@dimen/font_size_button</item>
     </style>
 </resources>

@@ -12,14 +12,14 @@ android:background="@color/background_enter" >
 
 <ImageView
     android:id="@+id/logo"
-    android:layout_width="300sp"
-    android:layout_height="500sp"
-    android:src="@drawable/portada"/>
+    android:layout_width="@dimen/width_cover_img"
+    android:layout_height="@dimen/height_cover_img"
+    android:src="@drawable/cover_draw"/>
 
 <TextView
     android:id="@+id/welcome"
-    android:layout_width="@dimen/width_logo"
-    android:layout_height="@dimen/height_logo"
+    android:layout_width="@dimen/width_cover_sign"
+    android:layout_height="@dimen/height_cover_sign"
     android:text="@string/welcome_message"
     android:textColor="@color/sign_enter"
     android:textStyle="bold"

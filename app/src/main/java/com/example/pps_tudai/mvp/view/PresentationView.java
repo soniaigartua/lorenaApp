@@ -2,6 +2,7 @@ package com.example.pps_tudai.mvp.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.animation.Animation;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,25 +23,25 @@ public class PresentationView {
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
     @BindView(R.id.welcome)
-    TextView welcome;
+    TextView sign_enter;
     @BindView(R.id.logo)
-    ImageView portada;
+    ImageView img_enter;
 
     public PresentationView(Activity activity) {
         ButterKnife.bind(this, activity);
         this.activityWeak = new WeakReference<Activity>(activity);
     }
 
-    public ImageView getPortadaImage() {
-        return portada;
+    public ImageView getEnterImage() {
+        return img_enter;
     }
 
-    public TextView getWelcomeMessage() {
-        return welcome;
+    public TextView getEnterSign() {
+        return sign_enter;
     }
 
-    public void setWelcomeMessage(TextView welcome) {
-        this.welcome = welcome;
+    public void setSignMessage(TextView welcome) {
+        this.img_enter = img_enter;
     }
 
     public void showMainScreen() {
@@ -50,9 +51,8 @@ public class PresentationView {
         }
     }
 
-    public void llega() {
-        if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.register_complete_message), Toast.LENGTH_SHORT).show();
-        }
+    public void initAnimations(Animation animation1, Animation animation2) {
+        sign_enter.setAnimation(animation1);
+        img_enter.setAnimation(animation2);
     }
 }

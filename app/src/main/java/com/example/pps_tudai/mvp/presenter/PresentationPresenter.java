@@ -12,7 +12,6 @@ public class PresentationPresenter {
     }
 
     public void startWelcomeAnimation (Animation animation1, Animation animation2) {
-        presentationView.getWelcomeMessage().setAnimation(animation1);
-        presentationView.getPortadaImage().setAnimation(animation2);
+        presentationView.initAnimations(animation1, animation2);
     }
 }
