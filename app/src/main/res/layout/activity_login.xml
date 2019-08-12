@@ -2,47 +2,31 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".activity.LoginActivity"
-    android:background="@drawable/desierto">
+    style="@style/AppTheme.lorenaApp"
+    android:paddingTop="@dimen/padding_top_login" >
 
     <EditText
         android:id="@+id/et_email"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
         android:hint="@string/placeholder_login_email"
-        android:textSize="@dimen/font_size_button"
-        android:inputType="textEmailAddress"
-         />
+        style="@style/EditTextStyle"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/et_password"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
         android:hint="@string/placeholder_login_password"
-        android:textSize="@dimen/font_size_button"
-        android:inputType="textEmailAddress" />
+        style="@style/EditTextStyle"
+        android:inputType="numberPassword"/>
 
     <Button
         android:id="@+id/btn_enter_login"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/button_login_text"
-        android:textSize="@dimen/font_size_button"
-        android:alpha="@dimen/alpha_button"
-        android:background="@color/colorPrimary" />
+        style="@style/ButtonStyle"
+        android:text="@string/button_login_text"/>
 
     <Button
         android:id="@+id/btn_cancel_login"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
+        style="@style/ButtonStyle"
         android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
-        android:text="@string/button_cancel_text"
-        android:textSize="@dimen/font_size_button"
-        android:alpha="@dimen/alpha_button"
-        android:background="@color/colorPrimary" />
+        android:text="@string/button_cancel_text"/>
 
 </LinearLayout>

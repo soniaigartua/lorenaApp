@@ -7,8 +7,7 @@ import com.example.pps_tudai.data.entities.entity.User;
 
 import java.util.concurrent.ExecutionException;
 
-import static com.example.pps_tudai.utils.StringUtils.ZERO;
-
+import static com.example.pps_tudai.utils.IntUtils.ZERO;
 
 public class GetUserByIdAsyncTask extends AsyncTask<Integer, Void, User> implements DbGenericQuery<User, Integer> {
 

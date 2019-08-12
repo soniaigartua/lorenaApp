@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <dimen name="button_width">280dp</dimen>
     <dimen name="button_height">60dp</dimen>
+    <dimen name="margin_top_logo">100dp</dimen>
+    <dimen name="margin_bottom_logo">100dp</dimen>
     <dimen name="separate_between_buttons_main_screen">17dp</dimen>
+    <dimen name="padding_top_enter">40dp</dimen>
+    <dimen name="padding_top_login">200dp</dimen>
+    <dimen name="padding_top_main">300dp</dimen>
+    <dimen name="padding_top_register">70dp</dimen>
+    <dimen name="width_cover_sign">230dp</dimen>
+    <dimen name="height_cover_sign">110dp</dimen>
+    <dimen name="width_cover_img">300dp</dimen>
+    <dimen name="height_cover_img">500dp</dimen>
+
+    <dimen name="alpha_button">0.8</dimen>
+
+    <dimen name="font_size_welcome_message">40sp</dimen>
     <dimen name="font_size_button">20sp</dimen>
     <dimen name="font_size_placeholders">16sp</dimen>
-    <dimen name="padding_top">40sp</dimen>
-    <dimen name="alpha_button">0.8</dimen>
 </resources>

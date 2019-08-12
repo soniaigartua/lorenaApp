@@ -10,7 +10,6 @@ public class StringUtils {
     public static final String EMPTY = "";
     public static final String NAME_USER = "lorena";
     public static final String SURNAME_USER = "igartua";
-    public static final int ZERO = 0;
     public static final String MAIL_HOST = "smtp.gmail.com";
     public static final String EMAIL_SENDER = "pps2019tudai@gmail.com";
     public static final String PASSWORD_SENDER = "tudai2019";
