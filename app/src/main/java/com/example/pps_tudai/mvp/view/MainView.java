@@ -2,10 +2,8 @@ package com.example.pps_tudai.mvp.view;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,10 +61,6 @@ public class MainView {
         return (ActivityCompat.checkSelfPermission(activityWeak.get(),
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
     }
-
-//    public LocationManager getLocationManager() {
-//        return (LocationManager) activityWeak.get().getSystemService(Context.LOCATION_SERVICE);
-//    }
 
     public void showLoginScreen() {
         if (activityWeak.get() != null) {
