@@ -5,9 +5,10 @@
     <dimen name="margin_top_logo">100dp</dimen>
     <dimen name="margin_bottom_logo">100dp</dimen>
     <dimen name="separate_between_buttons_main_screen">17dp</dimen>
+    <dimen name="margin_botton_button_main_screen">50dp</dimen>
     <dimen name="padding_top_enter">40dp</dimen>
     <dimen name="padding_top_login">200dp</dimen>
-    <dimen name="padding_top_main">300dp</dimen>
+    <dimen name="padding_top_main">100dp</dimen>
     <dimen name="padding_top_register">70dp</dimen>
     <dimen name="width_cover_sign">230dp</dimen>
     <dimen name="height_cover_sign">110dp</dimen>
@@ -19,4 +20,12 @@
     <dimen name="font_size_welcome_message">40sp</dimen>
     <dimen name="font_size_button">20sp</dimen>
     <dimen name="font_size_placeholders">16sp</dimen>
+
+    <dimen name="width_card_weather">200dp</dimen>
+    <dimen name="height_card_weather">200dp</dimen>
+    <dimen name="marginLeft_card_weather">60dp</dimen>
+    <dimen name="padding_botton_card_weather">40dp</dimen>
+    <dimen name="padding_top_degrees_sign">20dp</dimen>
+    <dimen name="font_size_weather_desc">26sp</dimen>
+    <dimen name="font_size_weather_degrees">30sp</dimen>
 </resources>

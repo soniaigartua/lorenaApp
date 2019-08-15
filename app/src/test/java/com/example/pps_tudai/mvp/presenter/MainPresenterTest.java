@@ -1,5 +1,6 @@
 package com.example.pps_tudai.mvp.presenter;
 
+import com.example.pps_tudai.mvp.model.MainModel;
 import com.example.pps_tudai.mvp.view.MainView;
 
 import org.junit.Before;
@@ -13,11 +14,12 @@ public class MainPresenterTest {
 
     private MainPresenter mainPresenter;
     @Mock private MainView mainView;
+    @Mock private MainModel mainModel;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mainPresenter = new MainPresenter(mainView);
+        mainPresenter = new MainPresenter(mainView, mainModel);
     }
 
     @Test

@@ -28,12 +28,10 @@ public class LoginPresenter {
                 } else {
                     loginView.showOnAuthenticationErrorMessage();
                 }
-
             }
             else {
                 loginView.showNoRegistrationMessage();
             }
-
         } else {
             loginView.showOnEmailErrorMessage();
         }

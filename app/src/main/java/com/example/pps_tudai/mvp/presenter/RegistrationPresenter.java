@@ -1,7 +1,6 @@
 package com.example.pps_tudai.mvp.presenter;
 
 import android.util.Log;
-
 import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
