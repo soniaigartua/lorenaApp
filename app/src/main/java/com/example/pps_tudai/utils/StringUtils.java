@@ -20,4 +20,10 @@ public class StringUtils {
     public static final String EMAIL_REGISTERED = "Registered Email: ";
     public static final String PASSWORD_REGISTERED = "Registered Password: ";
     public static final String WELCOME_MESSAGE = "Welcome to our App";
+    public static final String WEATHER_BASE_URL = "https://api.openweathermap.org";
+    public static final String WEATHER_API_KEY = "6e49828c2ffc1bcef8c511e5fa750615";
+    public static final String WEATHER_UNITS = "metric";
+    public static final String DEGREES = "°";
+    public static final String ICON_WEATHER_URL = "http://openweathermap.org/img/wn/";
+    public static final String ICON_WEATHER_URL_END = "@2x.png";
 }

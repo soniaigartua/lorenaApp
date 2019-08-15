@@ -22,4 +22,5 @@
     <string name="email_request_message">Send me this information</string>
     <string name="email_sent_message">Your data was sent by email</string>
     <string name="email_error_message">There was a problem sending the email</string>
+    <string name="error_contact_api_data">An error occurred while contacting the server</string>
 </resources>
