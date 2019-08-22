@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.LoginActivity;
 import com.example.pps_tudai.activity.RegistrationActivity;
-import com.example.pps_tudai.services.WeatherAPIResponse;
+import com.example.pps_tudai.services.weatherService.WeatherAPIResponse;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -50,16 +50,6 @@ public class MainView {
 
     public Activity getActivity() {
         return activityWeak.get();
-    }
-
-    public void requestPermissionsDataLocation() {
-        ActivityCompat.requestPermissions(activityWeak.get(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                LOCATION_REQUEST_CODE);
-    }
-
-    public boolean locationPermissionGranted() {
-        return (ActivityCompat.checkSelfPermission(activityWeak.get(),
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
     }
 
     public void showLoginScreen() {

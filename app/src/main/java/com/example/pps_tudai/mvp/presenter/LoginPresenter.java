@@ -8,6 +8,7 @@ public class LoginPresenter {
 
     private final LoginModel loginModel;
     private final LoginView loginView;
+    private int userId;
 
     public LoginPresenter(LoginModel loginModel, LoginView loginView) {
         this.loginModel = loginModel;
@@ -24,7 +25,8 @@ public class LoginPresenter {
         if (Validator.isValid(email)) {
             if (loginModel.checkEmailRegistered(email)) {
                 if (loginModel.validateUserByEmailAndPassword(email, password)) {
-                    loginView.showWelcomeScreen();
+                    userId = loginModel.getUserId(email, password);
+                    loginView.showWelcomeScreen(userId);
                 } else {
                     loginView.showOnAuthenticationErrorMessage();
                 }

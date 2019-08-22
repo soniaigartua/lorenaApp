@@ -6,8 +6,8 @@ import com.example.pps_tudai.R;
 import com.example.pps_tudai.mvp.model.MainModel;
 import com.example.pps_tudai.mvp.presenter.MainPresenter;
 import com.example.pps_tudai.mvp.view.MainView;
-import com.example.pps_tudai.services.WeatherServiceCall;
-import com.example.pps_tudai.services.WeatherServiceGenerator;
+import com.example.pps_tudai.services.weatherService.WeatherServiceCall;
+import com.example.pps_tudai.services.weatherService.WeatherServiceGenerator;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -25,6 +25,16 @@
         <item name="android:layout_height">@dimen/button_height</item>
     </style>
 
+    <style name="ButtonDialogStyle" >
+        <item name="android:textSize">@dimen/font_size_button_dialog</item>
+        <item name="android:alpha">@dimen/alpha_button</item>
+        <item name="android:textColor">@color/black_color</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_marginTop">@dimen/margen_img_avatar</item>
+        <item name="android:layout_width">@dimen/button_dialog_width</item>
+        <item name="android:layout_height">@dimen/button_dialog_height</item>
+    </style>
+
     <style name="EditTextStyle" >
         <item name="android:layout_width">@dimen/button_width</item>
         <item name="android:layout_height">@dimen/button_height</item>

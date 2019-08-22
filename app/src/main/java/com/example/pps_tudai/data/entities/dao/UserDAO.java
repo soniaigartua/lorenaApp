@@ -20,4 +20,7 @@ public interface UserDAO {
 
     @Query("SELECT * FROM users_table WHERE email LIKE :email AND password LIKE :password")
     User findUserByEmailAndPassword(String email, String password);
+
+    @Query("UPDATE users_table SET url_image = :imageUrl WHERE id == :userId")
+    public void updateImageUrl(int userId, String imageUrl);
 }

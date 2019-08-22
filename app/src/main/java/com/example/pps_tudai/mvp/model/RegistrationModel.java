@@ -2,6 +2,10 @@ package com.example.pps_tudai.mvp.model;
 
 import com.example.pps_tudai.data.entities.AppRepository;
 import com.example.pps_tudai.data.entities.entity.User;
+import com.example.pps_tudai.services.avatarService.AvatarAPIResponse;
+import com.example.pps_tudai.services.avatarService.AvatarServiceCall;
+
+import retrofit2.Call;
 
 public class RegistrationModel {
 
@@ -23,4 +27,7 @@ public class RegistrationModel {
     public void setUser(User user) {
         user = user;
     }
+
+
+
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.lorenaApp"
+    tools:context=".activity.AvatarSelectActivity">
+
+    <TextView
+        android:id="@+id/avatar_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margen_title_avatar"
+        android:layout_marginBottom="@dimen/margen_title_avatar"
+        android:gravity="center_horizontal"
+        android:text="@string/title_avatar_selection"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/font_size_avatar_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margin_recycler"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/height_recycler" />
+
+    <Button
+        android:id="@+id/btn_return"
+        style="@style/ButtonStyle"
+        android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
+        android:layout_marginBottom="@dimen/margin_botton_button_main_screen"
+        android:text="@string/button_save_avatar" />
+
+</LinearLayout>
