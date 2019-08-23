@@ -12,14 +12,6 @@
         android:layout_height="@dimen/height_img_avatar_dialog"
         android:layout_margin="@dimen/margen_img_avatar" />
 
-    <TextView
-        android:id="@+id/name_avatar_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/font_size_button_dialog" />
-
     <Button
         android:id="@+id/button_apply"
         style="@style/ButtonDialogStyle"

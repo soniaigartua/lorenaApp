@@ -75,4 +75,11 @@ public class AvatarSelectView {
             activityWeak.get().startActivity(welcome);
         }
     }
+
+    public void returnWelcomeActivity() {
+        if (activityWeak.get() != null) {
+            Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
+            activityWeak.get().startActivity(welcome);
+        }
+    }
 }

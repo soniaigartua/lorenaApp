@@ -4,18 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.pps_tudai.R;
-import com.example.pps_tudai.dialog.AvatarDialog;
+import com.example.pps_tudai.bus.DetailsAvatarRequestObserver;
+import com.example.pps_tudai.bus.RxBus;
 import com.example.pps_tudai.services.avatarService.AvatarAPIResponse;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import static com.example.pps_tudai.utils.IntUtils.AVATAR_HEIGHT;
 import static com.example.pps_tudai.utils.IntUtils.AVATAR_WIDTH;
 import static com.example.pps_tudai.utils.StringUtils.DOT;
@@ -45,10 +49,10 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarView
 
     @Override
     public void onBindViewHolder(AvatarViewHolder holder, int position) {
-         holder.avatar = avatarDataList.get(position);
+        holder.avatar = avatarDataList.get(position);
         String url = holder.avatar.getThumbnail().getPath() + DOT + holder.avatar.getThumbnail().getExtension();
         Picasso.get().load(url)
-                .resize(AVATAR_WIDTH,AVATAR_HEIGHT)
+                .resize(AVATAR_WIDTH, AVATAR_HEIGHT)
                 .into(holder.img_avatar);
     }
 
@@ -72,7 +76,7 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarView
 
         @OnClick(R.id.img_avatar)
         public void onDetailsClick(View view) {
-            new AvatarDialog(view.getContext(), avatar, userId).show();
+            RxBus.post(new DetailsAvatarRequestObserver.DetailsAvatarRequestPressed(avatar));
         }
 
     }
