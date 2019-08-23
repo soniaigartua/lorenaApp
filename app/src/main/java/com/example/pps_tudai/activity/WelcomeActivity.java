@@ -24,8 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Bundle data = getIntent().getExtras();
-        userId = data.getInt(USER_ID);
+        userId = getIntent().getExtras().getInt(USER_ID);
         init();
     }
 

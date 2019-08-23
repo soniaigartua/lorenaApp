@@ -45,7 +45,11 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarView
 
     @Override
     public void onBindViewHolder(AvatarViewHolder holder, int position) {
-        holder.bind(avatarDataList.get(position));
+         holder.avatar = avatarDataList.get(position);
+        String url = holder.avatar.getThumbnail().getPath() + DOT + holder.avatar.getThumbnail().getExtension();
+        Picasso.get().load(url)
+                .resize(AVATAR_WIDTH,AVATAR_HEIGHT)
+                .into(holder.img_avatar);
     }
 
     @Override
@@ -58,7 +62,6 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarView
         @BindView(R.id.img_avatar)
         ImageView img_avatar;
         AvatarAPIResponse.Result avatar;
-        String url;
         int userId;
 
         public AvatarViewHolder(View itemView, int id) {
@@ -72,13 +75,6 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarView
             new AvatarDialog(view.getContext(), avatar, userId).show();
         }
 
-        public void bind(final AvatarAPIResponse.Result avatar) {
-            this.avatar = avatar;
-            url = avatar.getThumbnail().getPath() + DOT + avatar.getThumbnail().getExtension();
-            Picasso.get().load(url)
-                    .resize(AVATAR_WIDTH,AVATAR_HEIGHT)
-                    .into(img_avatar);
-        }
     }
 }
 

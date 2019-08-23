@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso;
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import static com.example.pps_tudai.utils.IntUtils.USER_AVATAR_HEIGHT;
+import static com.example.pps_tudai.utils.IntUtils.USER_AVATAR_WIDTH;
 import static com.example.pps_tudai.utils.StringUtils.USER_ID;
 
 public class WelcomeView {
@@ -32,7 +34,7 @@ public class WelcomeView {
     public void configSreen(User user) {
         if (user.getUrl_image() != null) {
             Picasso.get().load(user.getUrl_image())
-                    .resize(180,230)
+                    .resize(USER_AVATAR_WIDTH,USER_AVATAR_HEIGHT)
                     .into(image_user);
         }
         email.setText(user.getEmail());
