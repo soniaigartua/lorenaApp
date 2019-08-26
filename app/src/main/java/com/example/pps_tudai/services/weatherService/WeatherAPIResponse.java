@@ -1,4 +1,4 @@
-package com.example.pps_tudai.services;
+package com.example.pps_tudai.services.weatherService;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -25,21 +25,12 @@ public class WeatherAPIResponse {
     @SerializedName("clouds")
     @Expose
     private Clouds clouds;
-//    @SerializedName("rain")
-//    @Expose
-//    private Rain rain;
-//    @SerializedName("snow")
-//    @Expose
-//    private Snow snow;
     @SerializedName("dt")
     @Expose
     private int dt;
     @SerializedName("sys")
     @Expose
     private Sys sys;
-//    @SerializedName("timezone")
-//    @Expose
-//    private int timezone;
     @SerializedName("id")
     @Expose
     private int id;
@@ -98,22 +89,6 @@ public class WeatherAPIResponse {
         this.clouds = clouds;
     }
 
-//    public Rain getRain() {
-//        return rain;
-//    }
-//
-//    public void setRain(Rain rain) {
-//        this.rain = rain;
-//    }
-//
-//    public Snow getSnow() {
-//        return snow;
-//    }
-//
-//    public void setSnow(Snow snow) {
-//        this.snow = snow;
-//    }
-
     public int getDt() {
         return dt;
     }
@@ -129,14 +104,6 @@ public class WeatherAPIResponse {
     public void setSys(Sys sys) {
         this.sys = sys;
     }
-
-//    public int getTimezone() {
-//        return timezone;
-//    }
-//
-//    public void setTimezone(int timezone) {
-//        this.timezone = timezone;
-//    }
 
     public int getId() {
         return id;

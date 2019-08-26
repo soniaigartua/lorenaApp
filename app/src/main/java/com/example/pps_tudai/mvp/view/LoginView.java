@@ -7,12 +7,14 @@ import android.widget.Toast;
 
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.MainActivity;
-import com.example.pps_tudai.mvp.presenter.MainPresenter;
+import com.example.pps_tudai.activity.WelcomeActivity;
 
 import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.pps_tudai.utils.StringUtils.USER_ID;
 
 public class LoginView {
 
@@ -56,10 +58,18 @@ public class LoginView {
         }
     }
 
-    public void showWelcomeScreen() {
+    public void showWelcomeScreen(int userId) {
         if (activityWeak.get() != null) {
-            Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.welcome_app_message), Toast.LENGTH_SHORT).show();
+            clearTextView();
+            Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
+            welcome.putExtra(USER_ID, userId);
+            activityWeak.get().startActivity(welcome);
         }
+    }
+
+    public void clearTextView() {
+        email.getText().clear();
+        password.getText().clear();
     }
 
     public void showDataEmptyScreen() {

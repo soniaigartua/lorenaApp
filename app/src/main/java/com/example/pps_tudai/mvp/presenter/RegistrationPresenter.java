@@ -10,6 +10,7 @@ import static com.example.pps_tudai.utils.StringUtils.EMAIL_HEADER;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_SENDER;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_SUBJECT;
+import static com.example.pps_tudai.utils.StringUtils.EMPTY;
 import static com.example.pps_tudai.utils.StringUtils.NAME_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.PASSWORD_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.PASSWORD_SENDER;
@@ -20,6 +21,7 @@ public class RegistrationPresenter {
 
     private final RegistrationModel registerModel;
     private final RegistrationView registerView;
+
 
     public RegistrationPresenter(RegistrationModel registerModel, RegistrationView registerView) {
         this.registerModel = registerModel;
@@ -35,9 +37,11 @@ public class RegistrationPresenter {
 
         if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || password_repeat.isEmpty()) {
             registerView.showDataEmptyScreen();
+            return;
         }
         if (!Validator.isValid(email)) {
             registerView.showErrorEmailRegistrationScreen();
+            return;
         }
         if (!password.equals(password_repeat)) {
             registerView.showErrorPasswordRegistrationScreen();
@@ -54,6 +58,10 @@ public class RegistrationPresenter {
 
     public void onCancelPressed() {
         registerView.cancelRegister();
+    }
+
+    public void onSelectAvatarPressed() {
+        registerView.selectAvatar();
     }
 
     public void sendEmail() {
@@ -75,6 +83,8 @@ public class RegistrationPresenter {
             }
         }).start();
     }
+
+
 }
 
 

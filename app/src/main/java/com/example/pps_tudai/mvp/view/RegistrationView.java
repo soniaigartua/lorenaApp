@@ -6,7 +6,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.pps_tudai.R;
+import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
+import com.example.pps_tudai.activity.WelcomeActivity;
 
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
@@ -58,8 +60,8 @@ public class RegistrationView {
     public void showRegistrationScreenOK() {
         if (activityWeak.get() != null) {
             Toast.makeText(activityWeak.get(), activityWeak.get().getString(R.string.register_complete_message), Toast.LENGTH_SHORT).show();
-            Intent cancel = new Intent(activityWeak.get(), MainActivity.class);
-            activityWeak.get().startActivity(cancel);
+            Intent main = new Intent(activityWeak.get(), MainActivity.class);
+            activityWeak.get().startActivity(main);
         }
     }
 
@@ -85,6 +87,13 @@ public class RegistrationView {
         if (activityWeak.get() != null) {
             Intent cancel = new Intent(activityWeak.get(), MainActivity.class);
             activityWeak.get().startActivity(cancel);
+        }
+    }
+
+    public void selectAvatar() {
+        if (activityWeak.get() != null) {
+            Intent select_avatar = new Intent(activityWeak.get(), AvatarSelectActivity.class);
+            activityWeak.get().startActivity(select_avatar);
         }
     }
 

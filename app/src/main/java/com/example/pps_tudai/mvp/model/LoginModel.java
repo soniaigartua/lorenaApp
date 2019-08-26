@@ -3,6 +3,8 @@ package com.example.pps_tudai.mvp.model;
 import com.example.pps_tudai.data.entities.AppRepository;
 import com.example.pps_tudai.data.entities.entity.User;
 
+import static com.example.pps_tudai.utils.IntUtils.ZERO;
+
 public class LoginModel {
 
     private final AppRepository usersRepository;
@@ -25,6 +27,14 @@ public class LoginModel {
             }
         }
         return false;
+    }
+
+    public int getUserId(String email, String password) {
+        User aux = usersRepository.getUserByEmail(email);
+        if (aux != null) {
+            return (int) aux.getId();
+        }
+        return ZERO;
     }
 
     public boolean checkEmailRegistered(String email) {

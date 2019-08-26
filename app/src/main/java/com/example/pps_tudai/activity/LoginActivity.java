@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         LoginView view = new LoginView(this);
         AppRepository appRepository = new AppRepository(AppRoomDataBase.getDatabase(this).userDao());
         LoginModel model = new LoginModel(appRepository);
-
         presenter = new LoginPresenter(model, view);
     }
 

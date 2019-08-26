@@ -1,4 +1,4 @@
-package com.example.pps_tudai.services;
+package com.example.pps_tudai.services.weatherService;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

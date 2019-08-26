@@ -6,6 +6,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import static com.example.pps_tudai.utils.StringUtils.EMPTY;
+
 @Entity(tableName = "users_table")
 public class User {
 
@@ -25,6 +27,10 @@ public class User {
     @NonNull
     @ColumnInfo(name = "password")
     private String password;
+    @Nullable
+    @ColumnInfo(name = "url_image")
+    private String url_image;
+
 
     public User (@Nullable String name, @Nullable String surname, String email, String password) {
         this.id = 0;
@@ -32,6 +38,7 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.url_image = null;
     }
 
     public void setId(long id) {
@@ -74,4 +81,12 @@ public class User {
         this.password = password;
     }
 
+    @Nullable
+    public String getUrl_image() {
+        return url_image;
+    }
+
+    public void setUrl_image(@Nullable String url_image) {
+        this.url_image = url_image;
+    }
 }
