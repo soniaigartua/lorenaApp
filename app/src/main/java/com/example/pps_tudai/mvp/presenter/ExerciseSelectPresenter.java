@@ -11,6 +11,7 @@ import com.example.pps_tudai.bus.RxBus;
 import com.example.pps_tudai.mvp.model.ExerciseSelectModel;
 import com.example.pps_tudai.mvp.view.ExerciseSelectView;
 import com.example.pps_tudai.services.exerciseService.ExerciseAPIResponse;
+import com.example.pps_tudai.services.exerciseService.Result;
 import com.example.pps_tudai.utils.DialogUtils;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class ExerciseSelectPresenter {
 
     private final ExerciseSelectView exerciseView;
     private final ExerciseSelectModel exerciseModel;
-    private List<ExerciseAPIResponse.Result> exercisesData;
+    private List<Result> exercisesData;
     private Call<ExerciseAPIResponse> exerciseCall;
 
     public ExerciseSelectPresenter(ExerciseSelectView exerciseView, ExerciseSelectModel exerciseModel) {
@@ -56,7 +57,7 @@ public class ExerciseSelectPresenter {
         exerciseView.returnWelcomeActivity();
     }
 
-    public void showExerciseDialog(ExerciseAPIResponse.Result exercise) {
+    public void showExerciseDialog(Result exercise) {
         Activity activity = exerciseView.getActivity();
 
         if (activity != null) {

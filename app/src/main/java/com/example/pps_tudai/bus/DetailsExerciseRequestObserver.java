@@ -1,6 +1,6 @@
 package com.example.pps_tudai.bus;
 
-import com.example.pps_tudai.services.exerciseService.ExerciseAPIResponse;
+import com.example.pps_tudai.services.exerciseService.Result;
 
 public abstract class DetailsExerciseRequestObserver extends BusObserver<DetailsExerciseRequestObserver.DetailsExerciseRequestPressed> {
 
@@ -10,17 +10,17 @@ public abstract class DetailsExerciseRequestObserver extends BusObserver<Details
 
     public static class DetailsExerciseRequestPressed {
 
-        private ExerciseAPIResponse.Result exercise;
+        private Result exercise;
 
-        public DetailsExerciseRequestPressed(ExerciseAPIResponse.Result exercise) {
+        public DetailsExerciseRequestPressed(Result exercise) {
             this.exercise = exercise;
         }
 
-        public ExerciseAPIResponse.Result getExercise() {
+        public Result getExercise() {
             return exercise;
         }
 
-        public void setExercise(ExerciseAPIResponse.Result exercise) {
+        public void setExercise(Result exercise) {
             this.exercise = exercise;
         }
     }

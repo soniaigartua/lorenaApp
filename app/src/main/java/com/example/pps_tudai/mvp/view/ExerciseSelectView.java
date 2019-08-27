@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.WelcomeActivity;
 import com.example.pps_tudai.adapter.ExerciseAdapter;
-import com.example.pps_tudai.services.exerciseService.ExerciseAPIResponse;
+import com.example.pps_tudai.services.exerciseService.Result;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import butterknife.BindView;
@@ -37,7 +38,7 @@ public class ExerciseSelectView {
         layoutManager = new LinearLayoutManager(getActivity());
         exerciseListRecycler.setLayoutManager(layoutManager);
         exerciseListRecycler.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL));
-        adapterRecycler = new ExerciseAdapter(new ArrayList<ExerciseAPIResponse.Result>());
+        adapterRecycler = new ExerciseAdapter(new ArrayList<Result>());
         exerciseListRecycler.setAdapter(adapterRecycler);
         exerciseListRecycler.invalidate();
     }

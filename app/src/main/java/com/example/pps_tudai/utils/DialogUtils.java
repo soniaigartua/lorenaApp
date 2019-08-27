@@ -14,7 +14,7 @@ import com.example.pps_tudai.bus.CancelAvatarButtonDialogObserver;
 import com.example.pps_tudai.bus.CancelExerciseButtonDialogObserver;
 import com.example.pps_tudai.bus.RxBus;
 import com.example.pps_tudai.services.avatarService.AvatarAPIResponse;
-import com.example.pps_tudai.services.exerciseService.ExerciseAPIResponse;
+import com.example.pps_tudai.services.exerciseService.Result;
 import com.squareup.picasso.Picasso;
 
 import io.reactivex.annotations.NonNull;
@@ -56,7 +56,7 @@ public class DialogUtils {
         });
     }
 
-    public static void exerciseDialog(@NonNull final Activity activity, final ExerciseAPIResponse.Result exercise) {
+    public static void exerciseDialog(@NonNull final Activity activity, final Result exercise) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         View view = activity.getLayoutInflater().inflate(R.layout.dialog_exercise_layout, null);
 

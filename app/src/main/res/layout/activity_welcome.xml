@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/image_user"
-            android:background="@drawable/icon"
+            android:background="@drawable/undefined"
             android:layout_width="@dimen/width_img_avatar_dialog"
             android:layout_height="@dimen/height_img_avatar_dialog" />
 

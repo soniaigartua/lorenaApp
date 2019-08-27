@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.bus.DetailsExerciseRequestObserver;
 import com.example.pps_tudai.bus.RxBus;
-import com.example.pps_tudai.services.exerciseService.ExerciseAPIResponse;
+import com.example.pps_tudai.services.exerciseService.Result;
 import com.example.pps_tudai.utils.SubString;
 import java.util.List;
 import butterknife.BindView;
@@ -18,9 +18,9 @@ import butterknife.OnClick;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
 
-    private List<ExerciseAPIResponse.Result> exercisesDataList;
+    private List<Result> exercisesDataList;
 
-    public ExerciseAdapter(List<ExerciseAPIResponse.Result> exercisesDataList) {
+    public ExerciseAdapter(List<Result> exercisesDataList) {
         this.exercisesDataList = exercisesDataList;
     }
 
@@ -54,7 +54,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
         @BindView(R.id.name_exercise)
         TextView name_exercise;
-        ExerciseAPIResponse.Result exercise;
+        Result exercise;
 
         public ExerciseViewHolder(View itemView) {
             super(itemView);
