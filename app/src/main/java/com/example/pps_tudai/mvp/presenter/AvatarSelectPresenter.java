@@ -73,7 +73,7 @@ public class AvatarSelectPresenter {
         Activity activity = avatarView.getActivity();
 
         if (activity != null) {
-            DialogUtils.sectionDialog(activity, avatar);
+            DialogUtils.avatarDialog(activity, avatar);
         }
     }
 

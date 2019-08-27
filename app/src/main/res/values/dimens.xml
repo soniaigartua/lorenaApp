@@ -37,6 +37,7 @@
     <dimen name="height_img_avatar_dialog">230dp</dimen>
     <dimen name="height_recycler">420dp</dimen>
     <dimen name="margin_recycler">10dp</dimen>
+    <dimen name="height_recycler_exercises">380dp</dimen>
 
     <dimen name="font_size_button_dialog">16sp</dimen>
     <dimen name="button_dialog_width">220dp</dimen>

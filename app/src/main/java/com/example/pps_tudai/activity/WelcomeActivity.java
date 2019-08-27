@@ -45,4 +45,9 @@ public class WelcomeActivity extends AppCompatActivity {
     public void selectAvatar() {
         presenter.onSelectAvatarPressed(userId);
     }
+
+    @OnClick(R.id.exercise_button)
+    public void btnExerciseClicked() {
+        presenter.onExercisesListPressed();
+    }
 }
