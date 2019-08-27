@@ -33,4 +33,7 @@ public class StringUtils {
     public static final String MARVEL_HASH = "9bc28513612cb271a7eeb257a1a9d41b";
     public static final String USER_ID = "userId";
     public static final String DOT = ".";
+
+    public static final String WGER_BASE_URL = "https://wger.de";
+    public static final String FORMAT_CALL_EXERCISE = "json";
 }

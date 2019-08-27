@@ -14,4 +14,6 @@ public class IntUtils {
 
     public static final int USER_AVATAR_WIDTH = 180;
     public static final int USER_AVATAR_HEIGHT = 230;
+
+    public static final int EXERCISE_QUANTITY = 86;
 }

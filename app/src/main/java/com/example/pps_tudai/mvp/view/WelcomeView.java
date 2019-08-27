@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.AvatarSelectActivity;
+import com.example.pps_tudai.activity.ExerciseSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.data.entities.entity.User;
 import com.squareup.picasso.Picasso;
@@ -52,6 +53,13 @@ public class WelcomeView {
             Intent select_avatar = new Intent(activityWeak.get(), AvatarSelectActivity.class);
             select_avatar.putExtra(USER_ID, userId);
             activityWeak.get().startActivity(select_avatar);
+        }
+    }
+
+    public void showExercisesList() {
+        if (activityWeak.get() != null) {
+            Intent select_exercise = new Intent(activityWeak.get(), ExerciseSelectActivity.class);
+            activityWeak.get().startActivity(select_exercise);
         }
     }
 }

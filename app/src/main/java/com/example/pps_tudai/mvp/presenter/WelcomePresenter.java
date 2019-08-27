@@ -28,4 +28,8 @@ public class WelcomePresenter {
     public void onLogoutPressed() {
         welcomeView.logout();
     }
+
+    public void onExercisesListPressed() {
+        welcomeView.showExercisesList();
+    }
 }

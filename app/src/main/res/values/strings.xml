@@ -32,6 +32,8 @@
     <string name="button_more">MORE</string>
     <string name="button_exercises">EXERCISES</string>
 
+    <string name="title_exercises_selection">LIST OF AVAILABLE EXERCISES:</string>
+
     <string name="user_settings">User Settings</string>
     <string name="next_view">more details in new view</string>
     <string name="changes_applied">Changes applied successfully</string>
