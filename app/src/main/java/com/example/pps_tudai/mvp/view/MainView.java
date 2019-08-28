@@ -1,16 +1,12 @@
 package com.example.pps_tudai.mvp.view;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
-
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.LoginActivity;
 import com.example.pps_tudai.activity.RegistrationActivity;
@@ -21,7 +17,7 @@ import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.pps_tudai.utils.IntUtils.LOCATION_REQUEST_CODE;
+import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
 import static com.example.pps_tudai.utils.IntUtils.SIZE_ICON_WEATHER;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.DEGREES;
@@ -32,8 +28,6 @@ public class MainView {
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
-    @BindView(R.id.card_weather)
-    CardView card_weather;
     @BindView(R.id.img_weather)
     ImageView img_weather;
     @BindView(R.id.temp_actual)
@@ -42,6 +36,8 @@ public class MainView {
     TextView temp_description;
     @BindView(R.id.location)
     TextView signLocation;
+    @BindView(R.id.progress_bar_main)
+    ProgressBar progress_bar_main;
 
     public MainView(Activity activity) {
         ButterKnife.bind(this, activity);
@@ -79,12 +75,28 @@ public class MainView {
     }
 
     public void showWeatherData(WeatherAPIResponse weather) {
-        card_weather.setCardElevation(ZERO);
         WeatherAPIResponse.Weather aux = weather.getWeather().get(ZERO);
         temp_description.setText(aux.getDescription());
         Picasso.get().load(ICON_WEATHER_URL +  aux.getIcon() + ICON_WEATHER_URL_END)
                                         .resize(SIZE_ICON_WEATHER,SIZE_ICON_WEATHER)
                                         .into(img_weather);
         temp_actual.setText(String.valueOf(weather.getMain().getTemp()) + DEGREES);
+    }
+
+    public ProgressBar getProgress_bar_main() {
+        return progress_bar_main;
+    }
+
+    public void setProgress_bar_main(ProgressBar progress_bar_main) {
+        this.progress_bar_main = progress_bar_main;
+    }
+
+    public void showLoader () {
+        progress_bar_main.setProgress(PERCENTAGE_UPLOADER);
+        progress_bar_main.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoader () {
+        progress_bar_main.setVisibility(View.GONE);
     }
 }

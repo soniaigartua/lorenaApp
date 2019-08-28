@@ -1,9 +1,7 @@
 package com.example.pps_tudai.mvp.presenter;
 
 import android.app.Activity;
-
 import androidx.appcompat.app.AlertDialog;
-
 import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.bus.ApplyAvatarButtonDialogObserver;
 import com.example.pps_tudai.bus.CancelAvatarButtonDialogObserver;
@@ -14,7 +12,6 @@ import com.example.pps_tudai.mvp.view.AvatarSelectView;
 import com.example.pps_tudai.services.avatarService.AvatarAPIResponse;
 import com.example.pps_tudai.adapter.AvatarAdapter;
 import com.example.pps_tudai.utils.DialogUtils;
-
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,6 +42,7 @@ public class AvatarSelectPresenter {
     }
 
     public void callAvatarService() {
+        avatarView.showLoader();
         avatarCall = avatarModel.getAvatarsDataFromService(MARVEL_TIMESTAMP, MARVEL_API_KEY, MARVEL_HASH);
 
         avatarCall.enqueue(new Callback<AvatarAPIResponse>() {
@@ -52,15 +50,18 @@ public class AvatarSelectPresenter {
             public void onResponse(Call<AvatarAPIResponse> call, Response<AvatarAPIResponse> response) {
                 if (!response.isSuccessful()) {
                     avatarView.showContactAPINotSuccessful(String.valueOf(response.code()));
+                    avatarView.hideLoader();
                 } else {
                     avatarData = response.body().getData().getResults();
                     avatarView.setAdapter(new AvatarAdapter(avatarData, userId));
+                    avatarView.hideLoader();
                 }
             }
 
             @Override
             public void onFailure(Call<AvatarAPIResponse> call, Throwable t) {
                 avatarView.showContactAPIFailure(t.getMessage());
+                avatarView.hideLoader();
             }
         });
     }

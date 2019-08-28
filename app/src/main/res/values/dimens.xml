@@ -48,4 +48,6 @@
     <dimen name="height_options_welcome_screen">110dp</dimen>
     <dimen name="icons_welcome_screen">40dp</dimen>
     <dimen name="font_size_welcome_screen">16sp</dimen>
+
+    <dimen name="margin_uploader">450dp</dimen>
 </resources>
