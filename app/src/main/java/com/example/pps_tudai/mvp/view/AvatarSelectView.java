@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.example.pps_tudai.utils.IntUtils.AVATAR_COLUMNS;
-import static com.example.pps_tudai.utils.IntUtils.PERCETAGE_UPLOADER;
+import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
 
 public class AvatarSelectView {
 
@@ -96,12 +95,12 @@ public class AvatarSelectView {
         this.progress_bar = progress_bar;
     }
 
-    public void showUploader () {
-        progress_bar.setProgress(PERCETAGE_UPLOADER);
+    public void showLoader () {
+        progress_bar.setProgress(PERCENTAGE_UPLOADER);
         progress_bar.setVisibility(View.VISIBLE);
     }
 
-    public void hideUploader () {
+    public void hideLoader () {
         progress_bar.setVisibility(View.GONE);
     }
 }

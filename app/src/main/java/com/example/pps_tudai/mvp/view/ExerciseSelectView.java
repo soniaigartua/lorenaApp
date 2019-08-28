@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.pps_tudai.utils.IntUtils.PERCETAGE_UPLOADER;
+import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
 
 public class ExerciseSelectView {
 
@@ -85,12 +85,12 @@ public class ExerciseSelectView {
         this.progress_bar = progress_bar;
     }
 
-    public void showUploader () {
-        progress_bar.setProgress(PERCETAGE_UPLOADER);
+    public void showLoader () {
+        progress_bar.setProgress(PERCENTAGE_UPLOADER);
         progress_bar.setVisibility(View.VISIBLE);
     }
 
-    public void hideUploader () {
+    public void hideLoader () {
         progress_bar.setVisibility(View.GONE);
     }
 }

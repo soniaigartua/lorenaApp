@@ -38,25 +38,25 @@ public class ExerciseSelectPresenter {
     }
 
     public void callExerciseService() {
-        exerciseView.showUploader();
+        exerciseView.showLoader();
         exerciseCall = exerciseModel.getWorkoutDataFromService(EXERCISE_QUANTITY, FORMAT_CALL_EXERCISE);
         exerciseCall.enqueue(new Callback<ExerciseAPIResponse>() {
             @Override
             public void onResponse(Call<ExerciseAPIResponse> call, Response<ExerciseAPIResponse> response) {
                 if (!response.isSuccessful()) {
                     exerciseView.showContactAPINotSuccessful(String.valueOf(response.code()));
-                    exerciseView.hideUploader();
+                    exerciseView.hideLoader();
                 } else {
                     exercisesData = response.body().getResults();
                     exerciseView.setAdapter(new ExerciseAdapter(exercisesData));
-                    exerciseView.hideUploader();
+                    exerciseView.hideLoader();
                 }
             }
 
             @Override
             public void onFailure(Call<ExerciseAPIResponse> call, Throwable t) {
                 exerciseView.showContactAPIFailure(t.getMessage());
-                exerciseView.hideUploader();
+                exerciseView.hideLoader();
             }
         });
     }

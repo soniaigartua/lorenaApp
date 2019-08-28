@@ -1,20 +1,12 @@
 package com.example.pps_tudai.mvp.view;
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.text.Layout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
-
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.LoginActivity;
 import com.example.pps_tudai.activity.RegistrationActivity;
@@ -25,8 +17,7 @@ import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.pps_tudai.utils.IntUtils.LOCATION_REQUEST_CODE;
-import static com.example.pps_tudai.utils.IntUtils.PERCETAGE_UPLOADER;
+import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
 import static com.example.pps_tudai.utils.IntUtils.SIZE_ICON_WEATHER;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.DEGREES;
@@ -100,12 +91,12 @@ public class MainView {
         this.progress_bar_main = progress_bar_main;
     }
 
-    public void showUploader () {
-        progress_bar_main.setProgress(PERCETAGE_UPLOADER);
+    public void showLoader () {
+        progress_bar_main.setProgress(PERCENTAGE_UPLOADER);
         progress_bar_main.setVisibility(View.VISIBLE);
     }
 
-    public void hideUploader () {
+    public void hideLoader () {
         progress_bar_main.setVisibility(View.GONE);
     }
 }

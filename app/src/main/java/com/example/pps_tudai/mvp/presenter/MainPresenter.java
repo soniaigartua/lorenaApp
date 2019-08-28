@@ -52,7 +52,7 @@ public class MainPresenter {
     }
 
     public void callWeatherService() {
-        mainView.showUploader();
+        mainView.showLoader();
         weatherCall = mainModel.getWeatherDataFromService(mainModel.getLatitude(), mainModel.getLongitude(),
                 WEATHER_UNITS, WEATHER_API_KEY);
 
@@ -61,18 +61,18 @@ public class MainPresenter {
             public void onResponse(Call<WeatherAPIResponse> call, Response<WeatherAPIResponse> response) {
                 if (!response.isSuccessful()) {
                     mainView.showContactAPINotSuccessful(String.valueOf(response.code()));
-                    mainView.hideUploader();
+                    mainView.hideLoader();
                 } else {
                     weatherData = response.body();
                     mainView.showWeatherData(weatherData);
-                    mainView.hideUploader();
+                    mainView.hideLoader();
                 }
             }
 
             @Override
             public void onFailure(Call<WeatherAPIResponse> call, Throwable t) {
                 mainView.showContactAPIFailure(t.getMessage());
-                mainView.hideUploader();
+                mainView.hideLoader();
             }
         });
     }
