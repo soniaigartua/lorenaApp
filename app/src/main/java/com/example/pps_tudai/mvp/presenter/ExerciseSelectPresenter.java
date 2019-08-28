@@ -1,6 +1,7 @@
 package com.example.pps_tudai.mvp.presenter;
 
 import android.app.Activity;
+
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.pps_tudai.activity.ExerciseSelectActivity;
@@ -37,18 +38,25 @@ public class ExerciseSelectPresenter {
     }
 
     public void callExerciseService() {
+        exerciseView.showUploader();
         exerciseCall = exerciseModel.getWorkoutDataFromService(EXERCISE_QUANTITY, FORMAT_CALL_EXERCISE);
         exerciseCall.enqueue(new Callback<ExerciseAPIResponse>() {
             @Override
             public void onResponse(Call<ExerciseAPIResponse> call, Response<ExerciseAPIResponse> response) {
-
-                exercisesData = response.body().getResults();
-                exerciseView.setAdapter(new ExerciseAdapter(exercisesData));
+                if (!response.isSuccessful()) {
+                    exerciseView.showContactAPINotSuccessful(String.valueOf(response.code()));
+                    exerciseView.hideUploader();
+                } else {
+                    exercisesData = response.body().getResults();
+                    exerciseView.setAdapter(new ExerciseAdapter(exercisesData));
+                    exerciseView.hideUploader();
+                }
             }
 
             @Override
             public void onFailure(Call<ExerciseAPIResponse> call, Throwable t) {
                 exerciseView.showContactAPIFailure(t.getMessage());
+                exerciseView.hideUploader();
             }
         });
     }

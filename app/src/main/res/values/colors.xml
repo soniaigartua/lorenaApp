@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#B57C3B</color>
     <color name="colorAccent">#332617</color>
     <color name="black_color">#000</color>
+    <color name="uploader_color">#6D8F6F</color>
     <color name="background_enter">#F3F3F6</color>
     <color name="sign_enter">#CE444A</color>
     <color name="transparent">#00FFFFFF</color>

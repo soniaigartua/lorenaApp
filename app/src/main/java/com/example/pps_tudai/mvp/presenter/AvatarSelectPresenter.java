@@ -45,6 +45,7 @@ public class AvatarSelectPresenter {
     }
 
     public void callAvatarService() {
+        avatarView.showUploader();
         avatarCall = avatarModel.getAvatarsDataFromService(MARVEL_TIMESTAMP, MARVEL_API_KEY, MARVEL_HASH);
 
         avatarCall.enqueue(new Callback<AvatarAPIResponse>() {
@@ -52,15 +53,18 @@ public class AvatarSelectPresenter {
             public void onResponse(Call<AvatarAPIResponse> call, Response<AvatarAPIResponse> response) {
                 if (!response.isSuccessful()) {
                     avatarView.showContactAPINotSuccessful(String.valueOf(response.code()));
+                    avatarView.hideUploader();
                 } else {
                     avatarData = response.body().getData().getResults();
                     avatarView.setAdapter(new AvatarAdapter(avatarData, userId));
+                    avatarView.hideUploader();
                 }
             }
 
             @Override
             public void onFailure(Call<AvatarAPIResponse> call, Throwable t) {
                 avatarView.showContactAPIFailure(t.getMessage());
+                avatarView.hideUploader();
             }
         });
     }

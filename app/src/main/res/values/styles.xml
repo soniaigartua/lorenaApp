@@ -41,4 +41,10 @@
         <item name="android:textColorHint">@color/black_color</item>
         <item name="android:textSize">@dimen/font_size_button</item>
     </style>
+
+    <style name="ProgressBarStyle" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="colorAccent">@color/sign_enter</item>
+    </style>
+
 </resources>

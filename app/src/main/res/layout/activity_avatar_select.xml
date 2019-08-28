@@ -4,6 +4,12 @@
     style="@style/AppTheme.lorenaApp"
     tools:context=".activity.AvatarSelectActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_uploader" />
+
     <TextView
         android:id="@+id/avatar_sign"
         android:layout_width="match_parent"
