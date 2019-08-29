@@ -44,7 +44,7 @@ public class StepsCounterPresenter implements SensorEventListener {
         if (sensor == null) {
             counterView.showNotSenserRegisteredMessagge();
         } else {
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI);
+                sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 

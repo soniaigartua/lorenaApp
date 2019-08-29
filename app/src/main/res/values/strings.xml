@@ -39,5 +39,8 @@
     <string name="changes_applied">Changes applied successfully</string>
     <string name="button_save_avatar">RETURN</string>
 
+    <string name="info_total_steps">Total Steps</string>
+    <string name="zero">0</string>
+
 
 </resources>
