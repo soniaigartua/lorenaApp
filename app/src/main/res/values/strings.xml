@@ -29,7 +29,7 @@
     <string name="button_avatar_apply">APPLY</string>
     <string name="button_logout">LOGOUT</string>
     <string name="button_weather">WEATHER</string>
-    <string name="button_more">MORE</string>
+    <string name="button_counter">COUNTER</string>
     <string name="button_exercises">EXERCISES</string>
 
     <string name="title_exercises_selection">LIST OF AVAILABLE EXERCISES:</string>

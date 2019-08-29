@@ -94,7 +94,7 @@
             android:layout_width="@dimen/width_options_welcome_screen"
             android:layout_height="@dimen/height_options_welcome_screen"
             android:gravity="center"
-            android:id="@+id/more_button"
+            android:id="@+id/counter_button"
             android:orientation="vertical">
 
             <ImageView
@@ -107,7 +107,7 @@
                 android:id="@+id/more_info_tittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_more"
+                android:text="@string/button_counter"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/black_color"
                 android:textSize="@dimen/font_size_welcome_screen" />

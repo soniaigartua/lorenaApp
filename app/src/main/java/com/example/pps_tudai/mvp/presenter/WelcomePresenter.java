@@ -32,4 +32,8 @@ public class WelcomePresenter {
     public void onExercisesListPressed() {
         welcomeView.showExercisesList();
     }
+
+    public void onCounterStepsPressed() {
+        welcomeView.showStepsCounterFunction((int)user.getId());
+    }
 }
