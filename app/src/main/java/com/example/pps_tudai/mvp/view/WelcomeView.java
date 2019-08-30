@@ -8,6 +8,7 @@ import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.activity.ExerciseSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
+import com.example.pps_tudai.activity.StepsCounterActivity;
 import com.example.pps_tudai.data.entities.entity.User;
 import com.squareup.picasso.Picasso;
 import java.lang.ref.WeakReference;
@@ -60,6 +61,14 @@ public class WelcomeView {
         if (activityWeak.get() != null) {
             Intent select_exercise = new Intent(activityWeak.get(), ExerciseSelectActivity.class);
             activityWeak.get().startActivity(select_exercise);
+        }
+    }
+
+    public void showStepsCounterFunction(int userId) {
+        if (activityWeak.get() != null) {
+            Intent counter = new Intent(activityWeak.get(), StepsCounterActivity.class);
+            counter.putExtra(USER_ID, userId);
+            activityWeak.get().startActivity(counter);
         }
     }
 }

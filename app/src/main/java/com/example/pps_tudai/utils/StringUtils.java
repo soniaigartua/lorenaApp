@@ -36,4 +36,9 @@ public class StringUtils {
 
     public static final String WGER_BASE_URL = "https://wger.de";
     public static final String FORMAT_CALL_EXERCISE = "json";
+
+    public static final String NO_SENSOR_REGISTERED = "No Step Counter Sensor !";
+
+    public static final boolean FALSE = false;
+    public static final boolean TRUE = true;
 }

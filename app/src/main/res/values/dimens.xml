@@ -50,4 +50,7 @@
     <dimen name="font_size_welcome_screen">16sp</dimen>
 
     <dimen name="margin_uploader">450dp</dimen>
+    <dimen name="font_size_step_counter">25sp</dimen>
+    <dimen name="font_size_step_number">70sp</dimen>
+    <dimen name="margin_button_return_counter">30dp</dimen>
 </resources>

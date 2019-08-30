@@ -50,4 +50,9 @@ public class WelcomeActivity extends AppCompatActivity {
     public void btnExerciseClicked() {
         presenter.onExercisesListPressed();
     }
+
+    @OnClick(R.id.counter_button)
+    public void btnCounterStepsClicked() {
+        presenter.onCounterStepsPressed();
+    }
 }
