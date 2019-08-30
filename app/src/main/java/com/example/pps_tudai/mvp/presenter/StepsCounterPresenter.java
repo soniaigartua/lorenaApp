@@ -19,8 +19,8 @@ public class StepsCounterPresenter implements SensorEventListener {
     private final StepsCounterView counterView;
     private final StepsCounterModel counterModel;
     private User user;
-    SensorManager sensorManager;
-    Sensor sensor;
+    private SensorManager sensorManager;
+    private Sensor sensor;
 
     public StepsCounterPresenter(StepsCounterView counterView, StepsCounterModel counterModel, int id, SensorManager sensorManager) {
         this.counterView = counterView;
@@ -62,11 +62,27 @@ public class StepsCounterPresenter implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
-
+        //not need
     }
 
     public void stopCounter() {
         sensorManager.unregisterListener(this);
         counterModel.setMovement(FALSE);
+    }
+
+    public SensorManager getSensorManager() {
+        return sensorManager;
+    }
+
+    public void setSensorManager(SensorManager sensorManager) {
+        this.sensorManager = sensorManager;
+    }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
     }
 }
