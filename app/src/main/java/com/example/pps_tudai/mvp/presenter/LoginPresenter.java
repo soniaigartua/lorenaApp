@@ -2,7 +2,7 @@ package com.example.pps_tudai.mvp.presenter;
 
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
-import com.example.pps_tudai.utils.Validator;
+import com.example.pps_tudai.utils.Tools;
 
 public class LoginPresenter {
 
@@ -22,7 +22,7 @@ public class LoginPresenter {
         if (email.isEmpty() || password.isEmpty()) {
             loginView.showDataEmptyScreen();
         }
-        if (Validator.isValid(email)) {
+        if (Tools.isValid(email)) {
             if (loginModel.checkEmailRegistered(email)) {
                 if (loginModel.validateUserByEmailAndPassword(email, password)) {
                     userId = loginModel.getUserId(email, password);

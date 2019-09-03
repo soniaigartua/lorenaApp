@@ -40,7 +40,10 @@
     <string name="button_save_avatar">RETURN</string>
 
     <string name="info_total_steps">Total Steps</string>
-    <string name="zero">0</string>
+    <string name="zero_float">0.0</string>
+    <string name="zero_int">0</string>
+    <string name="info_distance">Distance</string>
+    <string name="info_calories">Calories</string>
 
 
 </resources>

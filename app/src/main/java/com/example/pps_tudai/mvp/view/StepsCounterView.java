@@ -28,6 +28,10 @@ public class StepsCounterView {
     ImageView image_user;
     @BindView(R.id.number_steps)
     TextView number_steps;
+    @BindView(R.id.distance)
+    TextView distance;
+    @BindView(R.id.calories)
+    TextView calories;
 
     // activity should never be exposed publicly
     private WeakReference<Activity> activityWeak;
@@ -67,5 +71,13 @@ public class StepsCounterView {
 
     public void showCountingSteps(String value) {
         number_steps.setText(String.valueOf(value));
+    }
+
+    public void showTravelledDistance(String value) {
+        distance.setText(String.valueOf(value));
+    }
+
+    public void showConsumedCalories(String value) {
+        calories.setText(String.valueOf(value));
     }
 }
