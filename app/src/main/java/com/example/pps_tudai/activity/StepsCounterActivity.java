@@ -51,17 +51,15 @@ public class StepsCounterActivity extends AppCompatActivity {
         presenter.onReturnPressed();
     }
 
+    @OnClick(R.id.btn_reset)
+    public void btnResetClicked() {
+        presenter.resetCounter();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         presenter.activeCounter();
         presenter.startLocationUpdates();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        presenter.stopCounter();
-        presenter.stopUpdateLocation();
     }
 }

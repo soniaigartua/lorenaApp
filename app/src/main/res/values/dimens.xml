@@ -56,4 +56,8 @@
 
     <dimen name="width_layout_distance">180dp</dimen>
     <dimen name="padding_botton_counter">12dp</dimen>
+    <dimen name="padding_right_measures">10dp</dimen>
+    <dimen name="font_size_measures">20sp</dimen>
+
+    <dimen name="button_width_counter">160dp</dimen>
 </resources>

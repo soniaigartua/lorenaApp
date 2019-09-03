@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zero_float"
-            android:paddingRight="10dp"
+            android:paddingRight="@dimen/padding_right_measures"
             android:gravity="center"
             android:textColor="@color/black_color"
             android:textSize="@dimen/font_size_step_number" />
@@ -98,7 +98,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="metres"
                 android:textColor="@color/black_color"
-                android:textSize="20sp" />
+                android:textSize="@dimen/font_size_measures" />
         </LinearLayout>
     </LinearLayout>
 
@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zero_float"
-            android:paddingRight="10dp"
+            android:paddingRight="@dimen/padding_right_measures"
             android:textColor="@color/black_color"
             android:textSize="@dimen/font_size_step_number" />
 
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="calories"
                 android:textColor="@color/black_color"
-                android:textSize="20sp" />
+                android:textSize="@dimen/font_size_measures" />
 
         </LinearLayout>
 
@@ -145,10 +145,24 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
     <Button
         android:id="@+id/btn_return"
-        style="@style/ButtonStyle"
+        style="@style/ButtonStyleHorizontal"
         android:layout_marginTop="@dimen/margin_button_return_counter"
+        android:layout_marginRight="@dimen/padding_right_measures"
         android:text="@string/button_save_avatar" />
+
+    <Button
+        android:id="@+id/btn_reset"
+        style="@style/ButtonStyleHorizontal"
+
+        android:text="@string/button_reset_counter" />
+
+</LinearLayout>
 
 </LinearLayout>

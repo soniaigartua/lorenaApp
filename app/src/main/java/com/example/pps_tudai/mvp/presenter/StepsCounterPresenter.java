@@ -1,11 +1,15 @@
 package com.example.pps_tudai.mvp.presenter;
 
-import android.annotation.SuppressLint;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+
+import androidx.core.app.ActivityCompat;
+
 import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.StepsCounterModel;
 import com.example.pps_tudai.mvp.view.StepsCounterView;
@@ -16,12 +20,15 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+
+import static com.example.pps_tudai.utils.IntUtils.LOCATION_REQUEST_CODE;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.FALSE;
 import static com.example.pps_tudai.utils.StringUtils.TRUE;
 
 public class StepsCounterPresenter implements SensorEventListener {
 
+    private final static float INITIAL = 0;
     private static final int ONE = 1;
     private final static int INTERVAL = 10000;
     private final static int FAST_INTERVAL = 5000;
@@ -46,7 +53,6 @@ public class StepsCounterPresenter implements SensorEventListener {
         this.init(id);
     }
 
-    @SuppressLint("MissingPermission")
     public void init(int id) {
         user = counterModel.getUserById(id);
         counterView.configSreen(user);
@@ -56,9 +62,16 @@ public class StepsCounterPresenter implements SensorEventListener {
         setLocationCallback();
     }
 
-    @SuppressLint("MissingPermission")
     public void startLocationUpdates() {
-        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+        if (ActivityCompat.checkSelfPermission(counterView.getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(counterView.getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(counterView.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    LOCATION_REQUEST_CODE);
+            return;
+        }
+        else {
+            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+        }
     }
 
     public void onReturnPressed() {
@@ -119,18 +132,25 @@ public class StepsCounterPresenter implements SensorEventListener {
     }
 
     protected void setInitLocation() {
-        @SuppressLint("MissingPermission") Task task = fusedLocationClient.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    counterModel.addNewLocation(location);
+        if (ActivityCompat.checkSelfPermission(counterView.getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(counterView.getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(counterView.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    LOCATION_REQUEST_CODE);
+            return;
+        }
+        else {
+            Task task = fusedLocationClient.getLastLocation();
+            task.addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        counterModel.addNewLocation(location);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    @SuppressLint("MissingPermission")
     protected void createLocationRequest() {
         locationRequest = LocationRequest.create();
         locationRequest.setInterval(INTERVAL);
@@ -158,14 +178,18 @@ public class StepsCounterPresenter implements SensorEventListener {
             Float extra_distance = last_location.distanceTo(location);
             if (extra_distance > MARGIN_DISTANCE ) {
                 counterModel.setTravelledDistance(extra_distance);
+                counterModel.addNewLocation(location);
             }
-
             counterView.showTravelledDistance(Tools.getRoundedDistance(counterModel.getDistance()));
-            counterModel.addNewLocation(location);
         }
     }
 
     public void stopUpdateLocation() {
         fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
+
+    public void resetCounter() {
+        counterModel.setDistance(INITIAL);
+        counterModel.setSteps(ZERO);
     }
 }
