@@ -1,23 +1,15 @@
 package com.example.pps_tudai.mvp.presenter;
 
-import com.example.pps_tudai.data.entities.AppRepository;
-import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
-import com.example.pps_tudai.utils.Validator;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.stubbing.OngoingStubbing;
 
-import static com.example.pps_tudai.utils.StringUtils.EMAIL_USER;
 import static com.example.pps_tudai.utils.StringUtils.EMPTY;
-import static com.example.pps_tudai.utils.StringUtils.INVALID_EMAIL_USER;
-import static com.example.pps_tudai.utils.StringUtils.NAME_USER;
 import static com.example.pps_tudai.utils.StringUtils.PASSWORD_USER;
-import static com.example.pps_tudai.utils.StringUtils.SURNAME_USER;
 import static com.example.pps_tudai.utils.StringUtils.WRONG_EMAIL_USER;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

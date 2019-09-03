@@ -38,9 +38,13 @@
     <string name="next_view">more details in new view</string>
     <string name="changes_applied">Changes applied successfully</string>
     <string name="button_save_avatar">RETURN</string>
+    <string name="button_reset_counter">RESET</string>
 
     <string name="info_total_steps">Total Steps</string>
-    <string name="zero">0</string>
+    <string name="zero_float">0.0</string>
+    <string name="zero_int">0</string>
+    <string name="info_distance">Distance</string>
+    <string name="info_calories">Calories</string>
 
 
 </resources>

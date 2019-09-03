@@ -5,12 +5,11 @@ import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.RegistrationModel;
 import com.example.pps_tudai.mvp.view.RegistrationView;
 import com.example.pps_tudai.utils.GMailSender;
-import com.example.pps_tudai.utils.Validator;
+import com.example.pps_tudai.utils.Tools;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_HEADER;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_SENDER;
 import static com.example.pps_tudai.utils.StringUtils.EMAIL_SUBJECT;
-import static com.example.pps_tudai.utils.StringUtils.EMPTY;
 import static com.example.pps_tudai.utils.StringUtils.NAME_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.PASSWORD_REGISTERED;
 import static com.example.pps_tudai.utils.StringUtils.PASSWORD_SENDER;
@@ -39,7 +38,7 @@ public class RegistrationPresenter {
             registerView.showDataEmptyScreen();
             return;
         }
-        if (!Validator.isValid(email)) {
+        if (!Tools.isValid(email)) {
             registerView.showErrorEmailRegistrationScreen();
             return;
         }

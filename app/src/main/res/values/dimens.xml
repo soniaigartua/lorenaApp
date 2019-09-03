@@ -50,7 +50,14 @@
     <dimen name="font_size_welcome_screen">16sp</dimen>
 
     <dimen name="margin_uploader">450dp</dimen>
-    <dimen name="font_size_step_counter">25sp</dimen>
-    <dimen name="font_size_step_number">70sp</dimen>
-    <dimen name="margin_button_return_counter">30dp</dimen>
+    <dimen name="font_size_step_counter">18sp</dimen>
+    <dimen name="font_size_step_number">35sp</dimen>
+    <dimen name="margin_button_return_counter">20dp</dimen>
+
+    <dimen name="width_layout_distance">180dp</dimen>
+    <dimen name="padding_botton_counter">12dp</dimen>
+    <dimen name="padding_right_measures">10dp</dimen>
+    <dimen name="font_size_measures">20sp</dimen>
+
+    <dimen name="button_width_counter">160dp</dimen>
 </resources>

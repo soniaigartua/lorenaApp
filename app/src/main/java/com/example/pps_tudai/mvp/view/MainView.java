@@ -66,6 +66,10 @@ public class MainView {
         Toast.makeText(activityWeak.get(), R.string.error_contact_api_data, Toast.LENGTH_LONG).show();
     }
 
+    public void showMensaje(String codigo) {
+        Toast.makeText(activityWeak.get(), codigo, Toast.LENGTH_LONG).show();
+    }
+
     public void showContactAPINotSuccessful(String codigo) {
         signLocation.setText(codigo);
     }
