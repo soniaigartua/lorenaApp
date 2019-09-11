@@ -50,22 +50,23 @@ public class StepsCounterActivity extends AppCompatActivity implements GoogleApi
 
     private void init() {
         ButterKnife.bind(this);
+        configGoogleApiClient();
         final StepsCounterView counterView = new StepsCounterView(this);
         AppRepository appRepository = new AppRepository(AppRoomDataBase.getDatabase(this).userDao());
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         StepsCounterModel counterModel = new StepsCounterModel(appRepository);
         presenter = new StepsCounterPresenter(counterView, counterModel, userId, sensorManager, fusedLocationClient);
+    }
 
-        if (userId == ZERO) {
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
-            googleApiClient = new GoogleApiClient.Builder(this)
-                    .enableAutoManage(this, this)
-                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                    .build();
-        }
+    public void configGoogleApiClient() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
     }
 
     @Override

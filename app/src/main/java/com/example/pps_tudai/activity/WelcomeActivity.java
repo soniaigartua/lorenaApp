@@ -44,20 +44,21 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
     private void init() {
         ButterKnife.bind(this);
+        configGoogleApiClient();
         WelcomeView welcomeView = new WelcomeView(this);
         AppRepository appRepository = new AppRepository(AppRoomDataBase.getDatabase(this).userDao());
         WelcomeModel welcomeModel = new WelcomeModel(appRepository);
         presenter = new WelcomePresenter(welcomeView,welcomeModel, userId);
+    }
 
-        if (userId == ZERO) {
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
-            googleApiClient = new GoogleApiClient.Builder(this)
-                    .enableAutoManage(this, this)
-                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                    .build();
-        }
+    public void configGoogleApiClient() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
     }
 
     @Override

@@ -10,19 +10,22 @@ import android.widget.Toast;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.LoginActivity;
 import com.example.pps_tudai.activity.RegistrationActivity;
+import com.example.pps_tudai.activity.WelcomeActivity;
 import com.example.pps_tudai.services.weatherService.WeatherAPIResponse;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.picasso.Picasso;
-
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
+import static com.example.pps_tudai.utils.IntUtils.SING_IN_CODE;
 import static com.example.pps_tudai.utils.IntUtils.SIZE_ICON_WEATHER;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.DEGREES;
 import static com.example.pps_tudai.utils.StringUtils.ICON_WEATHER_URL;
 import static com.example.pps_tudai.utils.StringUtils.ICON_WEATHER_URL_END;
+import static com.example.pps_tudai.utils.StringUtils.USER_ID;
 
 public class MainView {
 
@@ -104,7 +107,22 @@ public class MainView {
         progress_bar_main.setVisibility(View.GONE);
     }
 
-    public void showGoogleAuthenticationScreen() {
+    public void showLoginGoogleScreen(GoogleApiClient googleApiClient) {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+        getActivity().startActivityForResult(signInIntent, SING_IN_CODE);
+    }
 
+    public void showConnectionGoogleFailed() {
+        Toast.makeText(activityWeak.get(), R.string.connection_failed, Toast.LENGTH_LONG).show();
+    }
+
+    public void showWelcomeSreen() {
+        Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
+        welcome.putExtra(USER_ID, ZERO);
+        activityWeak.get().startActivity(welcome);
+    }
+
+    public void showGoogleError() {
+        Toast.makeText(activityWeak.get(), R.string.connection_not_available, Toast.LENGTH_LONG).show();
     }
 }
