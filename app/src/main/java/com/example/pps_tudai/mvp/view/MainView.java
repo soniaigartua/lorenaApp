@@ -103,4 +103,8 @@ public class MainView {
     public void hideLoader () {
         progress_bar_main.setVisibility(View.GONE);
     }
+
+    public void showGoogleAuthenticationScreen() {
+
+    }
 }

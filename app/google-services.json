@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "626206362709",
+    "firebase_url": "https://lorenaapp-477b3.firebaseio.com",
+    "project_id": "lorenaapp-477b3",
+    "storage_bucket": "lorenaapp-477b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626206362709:android:8965102ecb4151a1ca58dc",
+        "android_client_info": {
+          "package_name": "com.example.pps_tudai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626206362709-o2t8protp3o4s1pchs39epc7e2c1fga9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pps_tudai",
+            "certificate_hash": "650d0cd9093d4a9d2c64c45366a5f4314eb9ea56"
+          }
+        },
+        {
+          "client_id": "626206362709-vlase8bkha402enj68sa0mfr439fsc6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHmzrF_iWBK3_j1MQ2NE1QKxXbZD3SNQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626206362709-vlase8bkha402enj68sa0mfr439fsc6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

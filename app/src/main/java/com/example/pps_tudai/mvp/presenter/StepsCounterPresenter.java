@@ -14,6 +14,7 @@ import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.StepsCounterModel;
 import com.example.pps_tudai.mvp.view.StepsCounterView;
 import com.example.pps_tudai.utils.Tools;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -54,8 +55,10 @@ public class StepsCounterPresenter implements SensorEventListener {
     }
 
     public void init(int id) {
-        user = counterModel.getUserById(id);
-        counterView.configSreen(user);
+        if (id!= ZERO) {
+            user = counterModel.getUserById(id);
+            counterView.configSreen(user);
+        }
 
         createLocationRequest();
         setInitLocation();
@@ -191,5 +194,9 @@ public class StepsCounterPresenter implements SensorEventListener {
     public void resetCounter() {
         counterModel.setDistance(INITIAL);
         counterModel.setSteps(ZERO);
+    }
+
+    public void showUserData(GoogleSignInAccount account) {
+        counterView.configSreenGoogleUser(account);
     }
 }

@@ -10,6 +10,7 @@ import com.example.pps_tudai.activity.ExerciseSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.activity.StepsCounterActivity;
 import com.example.pps_tudai.data.entities.entity.User;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.squareup.picasso.Picasso;
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
@@ -70,5 +71,14 @@ public class WelcomeView {
             counter.putExtra(USER_ID, userId);
             activityWeak.get().startActivity(counter);
         }
+    }
+
+    public void configSreenGoogleUser(GoogleSignInAccount account) {
+        if (account.getPhotoUrl() != null) {
+            Picasso.get().load(account.getPhotoUrl())
+                    .resize(USER_AVATAR_WIDTH,USER_AVATAR_HEIGHT)
+                    .into(image_user);
+        }
+        email.setText(account.getEmail());
     }
 }

@@ -17,4 +17,5 @@ public class IntUtils {
 
     public static final int EXERCISE_QUANTITY = 86;
     public static final int PERCENTAGE_UPLOADER = 86;
+    public static final int SING_IN_CODE = 666;
 }

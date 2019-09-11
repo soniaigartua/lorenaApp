@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.pps_tudai.mvp.model.MainModel;
 import com.example.pps_tudai.mvp.view.MainView;
 import com.example.pps_tudai.services.weatherService.WeatherAPIResponse;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,5 +84,9 @@ public class MainPresenter {
 
     public void onRegistrationPressed() {
         mainView.showRegistrationScreen();
+    }
+
+    public void onGoogleAuthenticationPressed() {
+        mainView.showGoogleAuthenticationScreen();
     }
 }
