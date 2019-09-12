@@ -7,6 +7,8 @@ import com.example.pps_tudai.services.avatarService.AvatarServiceCall;
 
 import retrofit2.Call;
 
+import static com.example.pps_tudai.utils.IntUtils.ZERO;
+
 public class RegistrationModel {
 
     private final AppRepository usersRepository;
@@ -27,7 +29,4 @@ public class RegistrationModel {
     public void setUser(User user) {
         user = user;
     }
-
-
-
 }

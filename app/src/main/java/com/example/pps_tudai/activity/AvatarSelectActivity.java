@@ -12,12 +12,17 @@ import com.example.pps_tudai.services.avatarService.AvatarServiceCall;
 import com.example.pps_tudai.services.avatarService.AvatarServiceGenerator;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
 import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+import static com.example.pps_tudai.utils.StringUtils.USER_IMAGE;
 
 public class AvatarSelectActivity extends AppCompatActivity {
 
     AvatarSelectPresenter presenter;
     private int userId;
+    private String userImage;
+    private String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,8 @@ public class AvatarSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_avatar_select);
 
         userId = getIntent().getExtras().getInt(USER_ID);
+        userEmail = getIntent().getExtras().getString(USER_EMAIL);
+        userImage = getIntent().getExtras().getString(USER_IMAGE);
         init();
     }
 

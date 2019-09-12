@@ -21,7 +21,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-
 import static com.example.pps_tudai.utils.IntUtils.LOCATION_REQUEST_CODE;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.FALSE;
@@ -37,28 +36,30 @@ public class StepsCounterPresenter implements SensorEventListener {
 
     private final StepsCounterView counterView;
     private final StepsCounterModel counterModel;
-    private User user;
     private SensorManager sensorManager;
     private Sensor sensor;
+    private int userId;
+    private String userImage;
+    private String userEmail;
 
     private FusedLocationProviderClient fusedLocationClient;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
 
-    public StepsCounterPresenter(StepsCounterView counterView, StepsCounterModel counterModel, int id,
+    public StepsCounterPresenter(StepsCounterView counterView, StepsCounterModel counterModel, int id, String userImage, String userEmail,
                                  SensorManager sensorManager, FusedLocationProviderClient fusedLocationClient) {
         this.counterView = counterView;
         this.counterModel = counterModel;
         this.sensorManager = sensorManager;
         this.fusedLocationClient = fusedLocationClient;
-        this.init(id);
+        this.userId = id;
+        this.userImage = userImage;
+        this.userEmail = userEmail;
+        this.init();
     }
 
-    public void init(int id) {
-        if (id!= ZERO) {
-            user = counterModel.getUserById(id);
-            counterView.configSreen(user);
-        }
+    public void init() {
+        counterView.configSreen(userImage, userEmail);
 
         createLocationRequest();
         setInitLocation();
@@ -71,8 +72,7 @@ public class StepsCounterPresenter implements SensorEventListener {
             ActivityCompat.requestPermissions(counterView.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     LOCATION_REQUEST_CODE);
             return;
-        }
-        else {
+        } else {
             fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
         }
     }
@@ -140,8 +140,7 @@ public class StepsCounterPresenter implements SensorEventListener {
             ActivityCompat.requestPermissions(counterView.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     LOCATION_REQUEST_CODE);
             return;
-        }
-        else {
+        } else {
             Task task = fusedLocationClient.getLastLocation();
             task.addOnSuccessListener(new OnSuccessListener<Location>() {
                 @Override
@@ -179,7 +178,7 @@ public class StepsCounterPresenter implements SensorEventListener {
         if (!counterModel.getLocations().isEmpty()) {
             Location last_location = counterModel.getLastLocation();
             Float extra_distance = last_location.distanceTo(location);
-            if (extra_distance > MARGIN_DISTANCE ) {
+            if (extra_distance > MARGIN_DISTANCE) {
                 counterModel.setTravelledDistance(extra_distance);
                 counterModel.addNewLocation(location);
             }

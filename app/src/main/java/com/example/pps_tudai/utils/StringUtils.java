@@ -3,8 +3,8 @@ package com.example.pps_tudai.utils;
 public class StringUtils {
 
     public static final String EMAIL_USER = "lore@tudai.com";
-    public static final String  WRONG_EMAIL_USER = "lorena.example.com";
-    public static final String  INVALID_EMAIL_USER = "lorena@gmail.com";
+    public static final String WRONG_EMAIL_USER = "lorena.example.com";
+    public static final String INVALID_EMAIL_USER = "lorena@gmail.com";
     public static final String PASSWORD_USER = "123";
     public static final String WRONG_PASSWORD_USER = "abc";
     public static final String EMPTY = "";
@@ -41,4 +41,6 @@ public class StringUtils {
 
     public static final boolean FALSE = false;
     public static final boolean TRUE = true;
+    public static final String USER_EMAIL = "UserEmail";
+    public static final String USER_IMAGE = "UserImage";
 }

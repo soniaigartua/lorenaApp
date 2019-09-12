@@ -34,6 +34,8 @@ public class AvatarSelectPresenter {
     private Call<AvatarAPIResponse> avatarCall;
     private List<AvatarAPIResponse.Result> avatarData;
     private int userId;
+    private String userImage;
+    private String userEmail;
 
 
     public AvatarSelectPresenter(AvatarSelectView avatarView, AvatarSelectModel avatarModel, int id) {
@@ -73,7 +75,7 @@ public class AvatarSelectPresenter {
     }
 
     public void onReturnPressed() {
-        avatarView.returnWelcomeActivity();
+        avatarView.returnWelcomeActivity(userId, userImage, userEmail);
     }
 
     public void showAvatarDialog(AvatarAPIResponse.Result avatar) {
@@ -93,6 +95,7 @@ public class AvatarSelectPresenter {
         if (userId != ZERO) {
             avatarModel.updateImageUrl(userId, imageUrl);
         }
+        userImage = imageUrl;
         dialog.dismiss();
     }
 

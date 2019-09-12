@@ -20,6 +20,9 @@ import butterknife.ButterKnife;
 
 import static com.example.pps_tudai.utils.IntUtils.AVATAR_COLUMNS;
 import static com.example.pps_tudai.utils.IntUtils.PERCENTAGE_UPLOADER;
+import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
+import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+import static com.example.pps_tudai.utils.StringUtils.USER_IMAGE;
 
 public class AvatarSelectView {
 
@@ -80,9 +83,12 @@ public class AvatarSelectView {
         }
     }
 
-    public void returnWelcomeActivity() {
+    public void returnWelcomeActivity(int userId, String userImage, String userEmail) {
         if (activityWeak.get() != null) {
             Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
+            welcome.putExtra(USER_ID, userId);
+            welcome.putExtra(USER_IMAGE, userImage);
+            welcome.putExtra(USER_EMAIL, userEmail);
             activityWeak.get().startActivity(welcome);
         }
     }

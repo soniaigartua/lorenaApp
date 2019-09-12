@@ -24,11 +24,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 import static com.example.pps_tudai.utils.IntUtils.LOCATION_REQUEST_CODE;
-import static com.example.pps_tudai.utils.IntUtils.SING_IN_CODE;
-import static com.example.pps_tudai.utils.IntUtils.ZERO;
-import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+
 import static com.example.pps_tudai.utils.StringUtils.WEATHER_API_KEY;
 import static com.example.pps_tudai.utils.StringUtils.WEATHER_UNITS;
 
@@ -102,14 +99,12 @@ public class MainPresenter implements GoogleApiClient.OnConnectionFailedListener
     }
 
     public void onLoginGooglePressed() {
-//        mainView.showLoginGoogleScreen(googleApiClient);
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-        mainView.getActivity().startActivityForResult(signInIntent, SING_IN_CODE);
+        mainView.showLoginGoogleScreen(googleApiClient);
     }
 
     public void handleSingInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-            mainView.showWelcomeSreen();
+            mainView.showWelcomeSreen(result);
         } else {
             mainView.showConnectionGoogleFailed();
         }

@@ -1,5 +1,9 @@
 package com.example.pps_tudai.mvp.presenter;
 
+import android.widget.Toast;
+
+import com.example.pps_tudai.R;
+import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
 import com.example.pps_tudai.utils.Tools;
@@ -25,8 +29,9 @@ public class LoginPresenter {
         if (Tools.isValid(email)) {
             if (loginModel.checkEmailRegistered(email)) {
                 if (loginModel.validateUserByEmailAndPassword(email, password)) {
-                    userId = loginModel.getUserId(email, password);
-                    loginView.showWelcomeScreen(userId);
+                    User user = loginModel.getUser(email, password);
+//                    Toast.makeText(loginView.getActivity(), String.valueOf(user.getId()), Toast.LENGTH_SHORT).show();
+                    loginView.showWelcomeScreen(user);
                 } else {
                     loginView.showOnAuthenticationErrorMessage();
                 }
