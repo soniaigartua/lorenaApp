@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.WelcomeActivity;
-import com.example.pps_tudai.data.entities.entity.User;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -41,13 +41,13 @@ public class StepsCounterView {
         this.activityWeak = new WeakReference<Activity>(activity);
     }
 
-    public void configSreen(User user) {
-        if (user.getUrl_image() != null) {
-            Picasso.get().load(user.getUrl_image())
+    public void configSreen(String userImage, String userEmail) {
+        if (userImage != null) {
+            Picasso.get().load(userImage)
                     .resize(USER_AVATAR_WIDTH,USER_AVATAR_HEIGHT)
                     .into(image_user);
         }
-        email.setText(user.getEmail());
+        email.setText(userEmail);
     }
 
     public Activity getActivity () {
@@ -79,5 +79,14 @@ public class StepsCounterView {
 
     public void showConsumedCalories(String value) {
         calories.setText(String.valueOf(value));
+    }
+
+    public void configSreenGoogleUser(GoogleSignInAccount account) {
+        if (account.getPhotoUrl() != null) {
+            Picasso.get().load(account.getPhotoUrl())
+                    .resize(USER_AVATAR_WIDTH,USER_AVATAR_HEIGHT)
+                    .into(image_user);
+        }
+        email.setText(account.getEmail());
     }
 }

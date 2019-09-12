@@ -8,13 +8,16 @@ import android.widget.Toast;
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.activity.WelcomeActivity;
+import com.example.pps_tudai.data.entities.entity.User;
 
 import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
 import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+import static com.example.pps_tudai.utils.StringUtils.USER_IMAGE;
 
 public class LoginView {
 
@@ -29,6 +32,10 @@ public class LoginView {
     public LoginView(Activity activity) {
         ButterKnife.bind(this, activity);
         this.activityWeak = new WeakReference<Activity>(activity);
+    }
+
+    public Activity getActivity () {
+        return activityWeak.get();
     }
 
     public String getUserEmail() {
@@ -58,11 +65,13 @@ public class LoginView {
         }
     }
 
-    public void showWelcomeScreen(int userId) {
+    public void showWelcomeScreen(User user) {
         if (activityWeak.get() != null) {
             clearTextView();
             Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
-            welcome.putExtra(USER_ID, userId);
+            welcome.putExtra(USER_ID, (int) user.getId());
+            welcome.putExtra(USER_IMAGE, user.getUrl_image());
+            welcome.putExtra(USER_EMAIL, user.getEmail());
             activityWeak.get().startActivity(welcome);
         }
     }

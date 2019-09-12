@@ -9,6 +9,7 @@ import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.activity.WelcomeActivity;
+import com.example.pps_tudai.data.entities.entity.User;
 
 import java.lang.ref.WeakReference;
 import butterknife.BindView;

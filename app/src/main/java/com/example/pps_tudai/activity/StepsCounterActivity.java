@@ -1,7 +1,6 @@
 package com.example.pps_tudai.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import com.example.pps_tudai.R;
@@ -12,16 +11,18 @@ import com.example.pps_tudai.mvp.presenter.StepsCounterPresenter;
 import com.example.pps_tudai.mvp.view.StepsCounterView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
+import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
 import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+import static com.example.pps_tudai.utils.StringUtils.USER_IMAGE;
 
 public class StepsCounterActivity extends AppCompatActivity {
 
     private StepsCounterPresenter presenter;
     private int userId;
+    private String userImage;
+    private String userEmail;
     private SensorManager sensorManager;
     private FusedLocationProviderClient fusedLocationClient;
 
@@ -31,6 +32,8 @@ public class StepsCounterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_steps_counter);
 
         userId = getIntent().getExtras().getInt(USER_ID);
+        userEmail = getIntent().getExtras().getString(USER_EMAIL);
+        userImage = getIntent().getExtras().getString(USER_IMAGE);
         init();
     }
 
@@ -41,7 +44,7 @@ public class StepsCounterActivity extends AppCompatActivity {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         StepsCounterModel counterModel = new StepsCounterModel(appRepository);
-        presenter = new StepsCounterPresenter(counterView, counterModel, userId, sensorManager, fusedLocationClient);
+        presenter = new StepsCounterPresenter(counterView, counterModel, userId, userImage, userEmail, sensorManager, fusedLocationClient);
     }
 
     @OnClick(R.id.btn_return)

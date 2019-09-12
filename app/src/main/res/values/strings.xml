@@ -45,6 +45,7 @@
     <string name="zero_int">0</string>
     <string name="info_distance">Distance</string>
     <string name="info_calories">Calories</string>
-
+    <string name="connection_failed">Google Connection Failed</string>
+    <string name="connection_not_available">the authentication is not available</string>
 
 </resources>

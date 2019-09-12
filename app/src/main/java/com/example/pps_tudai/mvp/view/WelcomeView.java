@@ -4,19 +4,22 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.activity.ExerciseSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.activity.StepsCounterActivity;
-import com.example.pps_tudai.data.entities.entity.User;
 import com.squareup.picasso.Picasso;
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import static com.example.pps_tudai.utils.IntUtils.USER_AVATAR_HEIGHT;
 import static com.example.pps_tudai.utils.IntUtils.USER_AVATAR_WIDTH;
+import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
 import static com.example.pps_tudai.utils.StringUtils.USER_ID;
+import static com.example.pps_tudai.utils.StringUtils.USER_IMAGE;
 
 public class WelcomeView {
 
@@ -33,13 +36,13 @@ public class WelcomeView {
         this.activityWeak = new WeakReference<Activity>(activity);
     }
 
-    public void configSreen(User user) {
-        if (user.getUrl_image() != null) {
-            Picasso.get().load(user.getUrl_image())
+    public void configSreen(int id, String userImage, String userEmail) {
+        if (userImage != null) {
+            Picasso.get().load(userImage)
                     .resize(USER_AVATAR_WIDTH,USER_AVATAR_HEIGHT)
                     .into(image_user);
         }
-        email.setText(user.getEmail());
+        email.setText(userEmail);
     }
 
     public void logout() {
@@ -49,10 +52,12 @@ public class WelcomeView {
         }
     }
 
-    public void selectAvatar(int userId) {
+    public void selectAvatar(int userId, String image, String email) {
         if (activityWeak.get() != null) {
             Intent select_avatar = new Intent(activityWeak.get(), AvatarSelectActivity.class);
             select_avatar.putExtra(USER_ID, userId);
+            select_avatar.putExtra(USER_IMAGE, image);
+            select_avatar.putExtra(USER_EMAIL, email);
             activityWeak.get().startActivity(select_avatar);
         }
     }
@@ -64,10 +69,12 @@ public class WelcomeView {
         }
     }
 
-    public void showStepsCounterFunction(int userId) {
+    public void showStepsCounterFunction(int userId, String image, String email) {
         if (activityWeak.get() != null) {
             Intent counter = new Intent(activityWeak.get(), StepsCounterActivity.class);
             counter.putExtra(USER_ID, userId);
+            counter.putExtra(USER_IMAGE, image);
+            counter.putExtra(USER_EMAIL,email);
             activityWeak.get().startActivity(counter);
         }
     }

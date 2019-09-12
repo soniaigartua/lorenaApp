@@ -1,5 +1,6 @@
 package com.example.pps_tudai.mvp.presenter;
 
+import com.example.pps_tudai.data.entities.entity.User;
 import com.example.pps_tudai.mvp.model.LoginModel;
 import com.example.pps_tudai.mvp.view.LoginView;
 import com.example.pps_tudai.utils.Tools;
@@ -8,7 +9,6 @@ public class LoginPresenter {
 
     private final LoginModel loginModel;
     private final LoginView loginView;
-    private int userId;
 
     public LoginPresenter(LoginModel loginModel, LoginView loginView) {
         this.loginModel = loginModel;
@@ -25,8 +25,8 @@ public class LoginPresenter {
         if (Tools.isValid(email)) {
             if (loginModel.checkEmailRegistered(email)) {
                 if (loginModel.validateUserByEmailAndPassword(email, password)) {
-                    userId = loginModel.getUserId(email, password);
-                    loginView.showWelcomeScreen(userId);
+                    User user = loginModel.getUser(email, password);
+                    loginView.showWelcomeScreen(user);
                 } else {
                     loginView.showOnAuthenticationErrorMessage();
                 }

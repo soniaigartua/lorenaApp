@@ -37,6 +37,11 @@ public class LoginModel {
         return ZERO;
     }
 
+    public User getUser(String email, String password) {
+        User aux = usersRepository.getUserByEmail(email);
+        return aux;
+    }
+
     public boolean checkEmailRegistered(String email) {
         User aux = usersRepository.getUserByEmail(email);
         if (aux != null) {

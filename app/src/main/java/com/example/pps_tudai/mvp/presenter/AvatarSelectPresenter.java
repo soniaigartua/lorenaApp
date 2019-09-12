@@ -1,7 +1,9 @@
 package com.example.pps_tudai.mvp.presenter;
 
 import android.app.Activity;
+
 import androidx.appcompat.app.AlertDialog;
+
 import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.bus.ApplyAvatarButtonDialogObserver;
 import com.example.pps_tudai.bus.CancelAvatarButtonDialogObserver;
@@ -12,11 +14,15 @@ import com.example.pps_tudai.mvp.view.AvatarSelectView;
 import com.example.pps_tudai.services.avatarService.AvatarAPIResponse;
 import com.example.pps_tudai.adapter.AvatarAdapter;
 import com.example.pps_tudai.utils.DialogUtils;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import static com.example.pps_tudai.utils.IntUtils.MARVEL_TIMESTAMP;
+import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.DOT;
 import static com.example.pps_tudai.utils.StringUtils.MARVEL_API_KEY;
 import static com.example.pps_tudai.utils.StringUtils.MARVEL_HASH;
@@ -28,6 +34,8 @@ public class AvatarSelectPresenter {
     private Call<AvatarAPIResponse> avatarCall;
     private List<AvatarAPIResponse.Result> avatarData;
     private int userId;
+    private String userImage;
+    private String userEmail;
 
 
     public AvatarSelectPresenter(AvatarSelectView avatarView, AvatarSelectModel avatarModel, int id) {
@@ -67,7 +75,7 @@ public class AvatarSelectPresenter {
     }
 
     public void onReturnPressed() {
-        avatarView.returnWelcomeActivity();
+        avatarView.returnWelcomeActivity(userId, userImage, userEmail);
     }
 
     public void showAvatarDialog(AvatarAPIResponse.Result avatar) {
@@ -82,9 +90,12 @@ public class AvatarSelectPresenter {
         dialog.dismiss();
     }
 
-    public void changeAvatarRequest (AvatarAPIResponse.Result avatar, AlertDialog dialog) {
+    public void changeAvatarRequest(AvatarAPIResponse.Result avatar, AlertDialog dialog) {
         String imageUrl = avatar.getThumbnail().getPath() + DOT + avatar.getThumbnail().getExtension();
-        avatarModel.updateImageUrl(userId, imageUrl);
+        if (userId != ZERO) {
+            avatarModel.updateImageUrl(userId, imageUrl);
+        }
+        userImage = imageUrl;
         dialog.dismiss();
     }
 
