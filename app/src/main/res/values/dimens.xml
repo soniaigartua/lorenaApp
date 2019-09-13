@@ -6,6 +6,7 @@
     <dimen name="margin_bottom_logo">100dp</dimen>
     <dimen name="separate_between_buttons_main_screen">17dp</dimen>
     <dimen name="margin_botton_button_main_screen">50dp</dimen>
+    <dimen name="margin_botton_text_main_screen">65dp</dimen>
     <dimen name="padding_top_enter">40dp</dimen>
     <dimen name="padding_top_login">200dp</dimen>
     <dimen name="padding_top_main">100dp</dimen>
@@ -38,6 +39,7 @@
     <dimen name="height_recycler">420dp</dimen>
     <dimen name="margin_recycler">10dp</dimen>
     <dimen name="height_recycler_exercises">380dp</dimen>
+    <dimen name="height_loader">220dp</dimen>
 
     <dimen name="font_size_button_dialog">16sp</dimen>
     <dimen name="button_dialog_width">220dp</dimen>
@@ -49,7 +51,7 @@
     <dimen name="icons_welcome_screen">40dp</dimen>
     <dimen name="font_size_welcome_screen">16sp</dimen>
 
-    <dimen name="margin_uploader">450dp</dimen>
+    <dimen name="margin_uploader">500dp</dimen>
     <dimen name="font_size_step_counter">18sp</dimen>
     <dimen name="font_size_step_number">35sp</dimen>
     <dimen name="margin_button_return_counter">20dp</dimen>
@@ -60,4 +62,5 @@
     <dimen name="font_size_measures">20sp</dimen>
 
     <dimen name="button_width_counter">160dp</dimen>
+    <dimen name="padding_botton_facebook">13dp</dimen>
 </resources>
