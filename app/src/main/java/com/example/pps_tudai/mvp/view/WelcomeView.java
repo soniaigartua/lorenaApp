@@ -11,6 +11,8 @@ import com.example.pps_tudai.activity.AvatarSelectActivity;
 import com.example.pps_tudai.activity.ExerciseSelectActivity;
 import com.example.pps_tudai.activity.MainActivity;
 import com.example.pps_tudai.activity.StepsCounterActivity;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 import com.squareup.picasso.Picasso;
 import java.lang.ref.WeakReference;
 import butterknife.BindView;
@@ -47,6 +49,9 @@ public class WelcomeView {
 
     public void logout() {
         if (activityWeak.get() != null) {
+            if (AccessToken.getCurrentAccessToken() != null) {
+                LoginManager.getInstance().logOut();
+            }
             Intent logout = new Intent(activityWeak.get(), MainActivity.class);
             activityWeak.get().startActivity(logout);
         }

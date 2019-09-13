@@ -12,6 +12,10 @@ import com.example.pps_tudai.activity.LoginActivity;
 import com.example.pps_tudai.activity.RegistrationActivity;
 import com.example.pps_tudai.activity.WelcomeActivity;
 import com.example.pps_tudai.services.weatherService.WeatherAPIResponse;
+
+import com.facebook.FacebookException;
+
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -27,6 +31,7 @@ import static com.example.pps_tudai.utils.IntUtils.SING_IN_CODE;
 import static com.example.pps_tudai.utils.IntUtils.SIZE_ICON_WEATHER;
 import static com.example.pps_tudai.utils.IntUtils.ZERO;
 import static com.example.pps_tudai.utils.StringUtils.DEGREES;
+import static com.example.pps_tudai.utils.StringUtils.EMAIL_USER;
 import static com.example.pps_tudai.utils.StringUtils.ICON_WEATHER_URL;
 import static com.example.pps_tudai.utils.StringUtils.ICON_WEATHER_URL_END;
 import static com.example.pps_tudai.utils.StringUtils.USER_EMAIL;
@@ -90,9 +95,9 @@ public class MainView {
     public void showWeatherData(WeatherAPIResponse weather) {
         WeatherAPIResponse.Weather aux = weather.getWeather().get(ZERO);
         temp_description.setText(aux.getDescription());
-        Picasso.get().load(ICON_WEATHER_URL +  aux.getIcon() + ICON_WEATHER_URL_END)
-                                        .resize(SIZE_ICON_WEATHER,SIZE_ICON_WEATHER)
-                                        .into(img_weather);
+        Picasso.get().load(ICON_WEATHER_URL + aux.getIcon() + ICON_WEATHER_URL_END)
+                .resize(SIZE_ICON_WEATHER, SIZE_ICON_WEATHER)
+                .into(img_weather);
         temp_actual.setText(String.valueOf(weather.getMain().getTemp()) + DEGREES);
     }
 
@@ -104,12 +109,12 @@ public class MainView {
         this.progress_bar_main = progress_bar_main;
     }
 
-    public void showLoader () {
+    public void showLoader() {
         progress_bar_main.setProgress(PERCENTAGE_UPLOADER);
         progress_bar_main.setVisibility(View.VISIBLE);
     }
 
-    public void hideLoader () {
+    public void hideLoader() {
         progress_bar_main.setVisibility(View.GONE);
     }
 
@@ -134,5 +139,21 @@ public class MainView {
 
     public void showGoogleError() {
         Toast.makeText(activityWeak.get(), R.string.connection_not_available, Toast.LENGTH_LONG).show();
+    }
+
+    public void showFacebookError(FacebookException exception) {
+        Toast.makeText(getActivity(), "ERROR " + exception.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    public void showFacebookCancel() {
+        Toast.makeText(getActivity(), "CANCEL ", Toast.LENGTH_LONG).show();
+    }
+
+    public void showWelcomeSreen(LoginResult loginResult) {
+        Intent welcome = new Intent(activityWeak.get(), WelcomeActivity.class);
+        welcome.putExtra(USER_ID,  ZERO);
+        welcome.putExtra(USER_EMAIL, EMAIL_USER);
+//        welcome.putExtra(USER_IMAGE, null);
+        activityWeak.get().startActivity(welcome);
     }
 }

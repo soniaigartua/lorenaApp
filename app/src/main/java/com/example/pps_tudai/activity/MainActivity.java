@@ -2,19 +2,23 @@ package com.example.pps_tudai.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+
 import com.example.pps_tudai.R;
 import com.example.pps_tudai.mvp.model.MainModel;
 import com.example.pps_tudai.mvp.presenter.MainPresenter;
 import com.example.pps_tudai.mvp.view.MainView;
 import com.example.pps_tudai.services.weatherService.WeatherServiceCall;
 import com.example.pps_tudai.services.weatherService.WeatherServiceGenerator;
+import com.facebook.CallbackManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.annotations.Nullable;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private MainPresenter presenter;
 
     private GoogleApiClient googleApiClient;
+    private CallbackManager callbackManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +41,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void init() {
         ButterKnife.bind(this);
         configGoogleApiClient();
+        callbackManager = CallbackManager.Factory.create();
         MainView view = new MainView(this);
         MainModel model = new MainModel(WeatherServiceGenerator.createService(WeatherServiceCall.class));
-        presenter = new MainPresenter(view, model, googleApiClient);
+        presenter = new MainPresenter(view, model, googleApiClient, callbackManager);
     }
 
     public void configGoogleApiClient() {
@@ -66,15 +72,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         presenter.onLoginGooglePressed();
     }
 
+    @OnClick(R.id.btn_facebook)
+    public void btnSingInFacebookClicked() {
+        presenter.onLoginFacebookPressed();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == SING_IN_CODE) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             presenter.handleSingInResult(result);
-        }
-        else {
-            presenter.showConnectionGoogleError();
         }
     }
 

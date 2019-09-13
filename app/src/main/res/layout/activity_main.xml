@@ -9,15 +9,15 @@
     <ProgressBar
         android:id="@+id/progress_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_uploader" />
+        android:layout_height="@dimen/height_loader"
+        android:layout_marginTop="@dimen/margin_uploader"/>
 
     <LinearLayout
         android:id="@+id/card_weather"
         android:layout_width="@dimen/width_card_weather"
         android:layout_height="@dimen/height_card_weather"
-        android:layout_marginLeft="@dimen/marginLeft_card_weather"
-        android:layout_marginBottom="@dimen/padding_botton_card_weather">
+        android:layout_marginTop="@dimen/margin_botton_text_main_screen"
+        android:layout_marginLeft="@dimen/marginLeft_card_weather">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,20 +57,29 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/location"
         android:layout_width="@dimen/width_cover_sign"
-        android:layout_height="@dimen/height_cover_sign"
+        android:layout_height="wrap_content"
         android:textColor="@color/sign_enter"
         android:textSize="@dimen/font_size_welcome_message"
         android:textStyle="bold" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btn_facebook"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:alpha="@dimen/alpha_button"
+        android:paddingTop="@dimen/padding_botton_facebook"
+        android:paddingBottom="@dimen/padding_botton_facebook"
+        android:textAlignment="center" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_google"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:alpha="@dimen/alpha_button"
+        android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:textAlignment="center">
 
     </com.google.android.gms.common.SignInButton>
@@ -87,6 +96,5 @@
         android:layout_marginTop="@dimen/separate_between_buttons_main_screen"
         android:layout_marginBottom="@dimen/margin_botton_button_main_screen"
         android:text="@string/button_signup_text" />
-
 
 </LinearLayout>

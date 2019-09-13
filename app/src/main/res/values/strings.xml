@@ -48,4 +48,7 @@
     <string name="connection_failed">Google Connection Failed</string>
     <string name="connection_not_available">the authentication is not available</string>
 
+    <string name="facebook_app_id">501219354048028</string> <string name="fb_login_protocol_scheme">fb501219354048028</string>
+
+
 </resources>
